@@ -5,45 +5,106 @@ export default {
 </script>
 
 <template>
-    <div class="container-fluid col-12 col-md-6">
-        <div class="d-flex py-4 px-3">
-            <div class="d-flex align-items-center px-1 ">
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</h4>
+    <div class="background_color">
+        <div class="container-fluid col-12 col-md-10 p-4">
+
+            <h1 class="text-center">ABOUT US</h1>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center">
+                <div class="d-flex px-3 m-2 p-2 container_card">
+                    <div class="d-flex align-items-center px-2 ">
+                        <h4><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</em></h4>
+                    </div>
+                    <div class="">
+                        <img class="img_size" src="../../public/image/Company.png" alt="">
+                    </div>
+                </div>
+
+                <div class="d-flex px-3 m-2 p-2 container_card">
+                    <div class="d-flex align-items-center px-2 ">
+                        <h4><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</em></h4>
+                    </div>
+                    <div class="">
+                        <img class="img_size" src="../../public/image/Hospital.png" alt="">
+                    </div>
+                </div>
+
+
             </div>
-            <div>
-                <img class="img_size" src="../../public/image/Logo.png" alt="">
+            <div class="d-flex px-3 m-2 p-2 container_card justify-content-center">
+                <div class="d-flex align-items-center px-2 ">
+                    <h4><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</em></h4>
+                </div>
+                <div class="px-4">
+                    <img class="img_size" src="../../public/image/CartoonDoctors.png" alt="">
+                </div>
             </div>
+
+
+            <div class="d-flex px-3 m-2 p-2 container_card justify-content-center">
+                <div class="d-flex align-items-center px-2 text-center ">
+                    <h4><em><strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam delectus, nemo
+                                deserunt necessitatibus cumque laborum autem! Velit consectetur consequuntur, magni nam
+                                maxime quaerat veritatis. Velit quod et illo labore molestias?</strong></em></h4>
+                </div>
+            </div>
+
+
         </div>
-        <div class="d-flex py-4 px-3">
-            <div>
-                <img class="img_size" src="../../public/image/Logo.png" alt="">
-            </div>
-            <div class="d-flex align-items-center px-1 ">
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</h4>
-            </div>
-        </div>
-        <div class="d-flex py-4 px-3">
-            <div class="d-flex align-items-center px-1 ">
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</h4>
-            </div>
-            <div>
-                <img class="img_size" src="../../public/image/Logo.png" alt="">
-            </div>
-        </div>
-        <div class="py-4 text-center">
-            <p><em><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. A illum exercitationem, minima assumenda laborum,
-                eos aliquid ullam ea libero eligendi odio. Exercitationem, sint quia. Similique suscipit ipsum obcaecati
-                facilis possimus?</strong></em></p>
-        </div>
+
+
+
     </div>
 </template>
 
 <style lang="scss" scoped>
 .img_size {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
+    border-radius: 10px;
 }
 
-/* .prova{
-    background-color: blue;
-} */</style>
+.container_card {
+    border: 1px solid;
+    background-color: #061f45;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    transition: transform 0.6s ease;
+    overflow: hidden;
+}
+
+.container_card:hover {
+    cursor: pointer;
+    transform: scale(1.0);
+}
+
+.container_card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(188, 215, 188, 0.5));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.container_card:hover::before {
+    opacity: 0.3;
+}
+
+h1 {
+    color: white;
+}
+
+h4 {
+    font-size: 26px;
+}
+
+.background_color {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(6, 31, 69, 1) 56%, rgba(12, 166, 140, 1) 88%, rgba(12, 166, 140, 1) 100%);
+}
+</style>
