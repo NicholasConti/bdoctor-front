@@ -6,6 +6,7 @@ export default {
 
 <template>
     <h1>Doctors</h1>
+    <router-link :to="{name:'InfoDoctor'}">vai in pace</router-link>
 </template>
 
 <style lang="scss" scoped>
