@@ -5,11 +5,59 @@ export default {
 </script>
 
 <template>
-    <h1>Footer</h1>
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3 ">
+                <h5>Servizi</h5>
+                <ul>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <h5>Servizi</h5>
+                <ul>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <h5>Servizi</h5>
+                <ul>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <h5>Servizi</h5>
+                <ul>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                    <li>prova</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <span>loghi social</span>
+            <span>loghi social</span>
+            <span>loghi social</span>
+        </div>
+        <h6 class="text-center">www.bdoctors.it © 2023 - Prenota la tua visita online!</h6>
+    </footer>
 </template>
 
 <style lang="scss" scoped>
-h1 {
-    color: blue
+
+ul{
+    list-style: none;
+    padding-left: 0;
 }
+
 </style>
