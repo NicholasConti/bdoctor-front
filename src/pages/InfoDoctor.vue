@@ -1,17 +1,17 @@
+
 <script>
+
+
 export default {
-    name: 'AboutUs'
+    name: 'InfoDoctor',
 }
 </script>
 
 <template>
-    <h1>About Us</h1>
+    <h1>prova</h1>
 </template>
 
 <style lang="scss" scoped>
 
-h1 {
-    color: blue
-}
 
 </style>
