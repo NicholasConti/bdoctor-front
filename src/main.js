@@ -7,8 +7,10 @@ import App from './App.vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+
+import { router } from './router';
 
 library.add(faDownload);
 
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

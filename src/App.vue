@@ -1,15 +1,19 @@
 <script>
-import HelloApp from './components/HelloApp.vue'
+import HeaderApp from './components/HeaderApp.vue';
+import FooterApp from './components/FooterApp.vue';
 export default {
     name: 'App',
     components: {
-        HelloApp
+        HeaderApp,
+        FooterApp
     }
 }
 </script>
 
 <template>
-    <HelloApp />
+    <HeaderApp />
+    <RouterView></RouterView>
+    <FooterApp />
 </template>
 
 <style lang="scss" scoped></style>
