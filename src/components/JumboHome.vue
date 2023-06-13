@@ -5,6 +5,13 @@ export default {
 </script>
 
 <template>
+
+    
+</template>
+
+<style lang="scss" scoped>
+    
+
     <div class="jumbo">
         <div class="container h-100 text-center pt-2">
             <img class="h-100" src="../../public/image/doctors.png" alt="doctors">
@@ -18,4 +25,5 @@ div.jumbo {
     background-size: cover;
     height: 300px;
 }
+
 </style>
