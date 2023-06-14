@@ -10,6 +10,7 @@ export default {
             <img class="h-100" src="../../public/image/doctors.png" alt="doctors">
         </div>
     </div>
+    prova
 </template>
 
 <style lang="scss" scoped>
