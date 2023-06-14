@@ -44,17 +44,28 @@ export default {
                 </ul>
             </div>
         </div>
-        <div class="text-center">
-            <span>loghi social</span>
-            <span>loghi social</span>
-            <span>loghi social</span>
+        <div class="social text-center d-flex justify-content-center gap-1">
+            <div><a href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a></div>
+            <div><a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a></div>
+            <div><a href="#"><font-awesome-icon icon="fa-brands fa-facebook-f" /></a></div>
+            <div><a href="#"><font-awesome-icon icon="fa-brands fa-youtube" /></a></div>
+            <div><a href="#"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a></div>
+            
         </div>
         <h6 class="text-center">www.bdoctors.it © 2023 - Prenota la tua visita online!</h6>
     </footer>
 </template>
 
 <style lang="scss" scoped>
-
+.social div{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 50, 0.3);
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
 ul{
     list-style: none;
     padding-left: 0;
