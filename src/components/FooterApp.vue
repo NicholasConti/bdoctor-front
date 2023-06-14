@@ -6,8 +6,8 @@ export default {
 
 <template>
     <footer class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-4 col-lg-3 ">
+        <div class="row text-center">
+            <div class="col-12 col-md-6 col-lg-3 mx-auto">
                 <h5>Servizi</h5>
                 <ul>
                     <li>prova</li>
@@ -16,7 +16,7 @@ export default {
                     <li>prova</li>
                 </ul>
             </div>
-            <div class="col-12 col-md-4 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3 mx-auto">
                 <h5>Servizi</h5>
                 <ul>
                     <li>prova</li>
@@ -25,7 +25,7 @@ export default {
                     <li>prova</li>
                 </ul>
             </div>
-            <div class="col-12 col-md-4 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3 mx-auto">
                 <h5>Servizi</h5>
                 <ul>
                     <li>prova</li>
@@ -34,7 +34,7 @@ export default {
                     <li>prova</li>
                 </ul>
             </div>
-            <div class="col-12 col-md-4 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3 mx-auto">
                 <h5>Servizi</h5>
                 <ul>
                     <li>prova</li>
@@ -44,7 +44,7 @@ export default {
                 </ul>
             </div>
         </div>
-        <div>
+        <div class="text-center">
             <span>loghi social</span>
             <span>loghi social</span>
             <span>loghi social</span>
