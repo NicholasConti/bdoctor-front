@@ -14,8 +14,8 @@ export default {
                 <div class="hov d-none d-md-block gap-5"><router-link :to="{name:'InfoDoctor'}"><h5 class="d-flex gap-2"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-4"/>Login</h5></router-link></div>
             </div>
                 <!-- @-SM-DROPDOWN-ICON -->
-            <div class="btn-group d-inline">
-                <button type="button" class="btn dropdown-toggle ham d-flex align-items-center justify-content-end d-sm-block d-md-none border-0 mt-5" data-bs-toggle="dropdown">
+            <div class="btn-group d-inline d-sm-block d-md-none">
+                <button type="button" class="btn dropdown-toggle ham d-flex align-items-center justify-content-end border-0 mt-5" data-bs-toggle="dropdown">
                     <font-awesome-icon icon="fa-solid fa-bars" class="fs-3 "/>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">

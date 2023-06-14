@@ -16,7 +16,7 @@ export default {
                         <h4><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</em></h4>
                     </div>
                     <div class="">
-                        <img class="img_size" src="../../public/image/Company.png" alt="">
+                        <img class="img_size" src="/image/Company.png" alt="">
                     </div>
                 </div>
 
@@ -25,10 +25,9 @@ export default {
                         <h4><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</em></h4>
                     </div>
                     <div class="">
-                        <img class="img_size" src="../../public/image/Hospital.png" alt="">
+                        <img class="img_size" src="/image/Hospital.png" alt="">
                     </div>
                 </div>
-
 
             </div>
             <div class="d-flex px-3 m-2 p-2 container_card justify-content-center">
@@ -36,19 +35,16 @@ export default {
                     <h4><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eaque omnis p?</em></h4>
                 </div>
                 <div class="px-4">
-                    <img class="img_size" src="../../public/image/CartoonDoctors.png" alt="">
+                    <img class="img_size" src="/image/CartoonDoctors.png" alt="">
                 </div>
             </div>
-
-
             <div class="d-flex px-3 m-2 p-2 container_card justify-content-center">
                 <div class="d-flex align-items-center px-2 text-center ">
-                    <h4><em><strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam delectus, nemo
+                    <h1><em><strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam delectus, nemo
                                 deserunt necessitatibus cumque laborum autem! Velit consectetur consequuntur, magni nam
-                                maxime quaerat veritatis. Velit quod et illo labore molestias?</strong></em></h4>
+                                maxime quaerat veritatis. Velit quod et illo labore molestias?</strong></em></h1>
                 </div>
             </div>
-
 
         </div>
 
@@ -65,8 +61,8 @@ export default {
 }
 
 .container_card {
-    border: 1px solid;
-    background-color: #061f45;
+    /* border: 1px solid; */
+    /* background-color: #061f45; */
     border-radius: 10px;
     color: white;
     position: relative;
@@ -104,7 +100,7 @@ h4 {
 }
 
 .background_color {
-    background: rgb(2, 0, 36);
-    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(6, 31, 69, 1) 56%, rgba(12, 166, 140, 1) 88%, rgba(12, 166, 140, 1) 100%);
+    background: rgb(0,90,151);
+    background: linear-gradient(180deg, rgba(0,90,151,1) 0%, rgba(43,151,172,1) 100%);
 }
 </style>

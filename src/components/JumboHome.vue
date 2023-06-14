@@ -7,16 +7,18 @@ export default {
 <template>
     <div class="jumbo d-none d-lg-block">
         <div class="container h-100 text-center pt-2">
-            <img class="h-100" src="../../public/image/doctors.png" alt="doctors">
+            <img class="h-100" src="/image/doctors.png" alt="doctors" style="width: 600px;">
         </div>
     </div>
-    prova
+
 </template>
 
 <style lang="scss" scoped>
     div.jumbo {
-        background-image: url(../../public/image/jumbotron.jpg);
+        background-image: url(/image/jumbo1.jpg);
         background-size: cover;
-        height: 500px;
+        background-position: center;
+        height: 300px;
+        border-bottom: 10px solid #2b97ac ;
     }
 </style>
