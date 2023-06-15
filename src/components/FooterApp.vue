@@ -53,17 +53,21 @@ export default {
                 </ul>
             </div>
         </div>
-        <div class="text-center py-4">
-            <span>loghi social</span>
-            <span>loghi social</span>
-            <span>loghi social</span>
         </div>
         <h6 class="text-center">www.bdoctors.it © 2023 - Prenota la tua visita online!</h6>
     </footer>
 </template>
 
 <style lang="scss" scoped>
-
+.social div{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 50, 0.3);
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
 ul{
     list-style: none;
     padding-left: 0;

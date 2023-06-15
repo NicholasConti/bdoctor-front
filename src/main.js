@@ -10,8 +10,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faUserDoctor } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
+
+
 import { router } from './router';
 
-library.add(faDownload, faBars, faUserDoctor);
+library.add(faDownload, faBars, faUserDoctor, faTwitter, faInstagram, faFacebookF, faYoutube, faLinkedinIn);
 
 createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
