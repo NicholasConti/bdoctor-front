@@ -9,11 +9,12 @@ export default {
 
 <template>
     <div class="background_color">
-
+        <!-- doctor -->
         <div class="d-flex">
             <div class="container_img px-4 py-4">
                 <img src="/image/doct1.jpg" class="card-img-top img_prova" alt="di" style="width: 200px;">
             </div>
+            <!-- Info-doctor -->
             <div class="px-4 py-4">
                 <div>
                     <h4>sponsor</h4>
@@ -22,23 +23,26 @@ export default {
                     <h4>info doctor</h4>
                 </div>
             </div>
+            <!-- Info-doctor -->
         </div>
-
+        <!-- doctor -->
         <div class="container-fluid d-flex justify-content-center px-4 py-4">
             <div class="row">
+                <!-- Message -->
                 <div class="col-md-6">
                     <div class="box_message">
                         <h3>Prenota una visita </h3>
                         <form action="invia_messaggio.php" method="POST">
                             <textarea name="messaggio" rows="5" cols="40"
                                 placeholder="Scrivi il tuo messaggio qui"></textarea>
-                                <div class="py-2 px-3">
-                                    <input type="submit" value="Invia">
-                                </div>
-                            
+                            <div class="py-2 px-3">
+                                <input type="submit" value="Invia">
+                            </div>
                         </form>
                     </div>
                 </div>
+                <!-- Message -->
+                <!-- Review -->
                 <div class="col-md-6">
                     <div class="box_review">
                         <h3>Recensisci Il dottore</h3>
@@ -65,10 +69,14 @@ export default {
                         </form>
                     </div>
                 </div>
+                <!-- Review -->
             </div>
         </div>
-
-
+        <!-- LinkHome -->
+        <div class="text-center py-4">
+            <router-link :to="{ name: 'home' }">Torna alla Home</router-link>
+        </div>
+        <!-- LinkHome -->
     </div>
 </template>
 
