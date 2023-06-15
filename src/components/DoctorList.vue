@@ -1,6 +1,30 @@
 <script>
+import axios from 'axios';
 export default {
-    name: 'DoctorList'
+    name: 'DoctorList',
+    data() {
+        return {
+            doctors: [],
+            specs: [],
+        }
+    },
+    methods: {
+        getDoctors() {
+            axios.get('http://127.0.0.1:8000/api/doctors').then((response) => {
+                this.doctors = response.data.results;
+                console.log(this.doctors);
+            })
+        },
+        getSpec() {
+            axios.get('http://127.0.0.1:8000/api/specializations').then((response) => {
+                this.specs = response.data.results;
+            })
+        }
+    },
+    created() {
+        this.getSpec();
+        this.getDoctors();
+    }
 }
 </script>
 
@@ -15,11 +39,7 @@ export default {
                 </div>
             </form>
             <div class="d-flex justify-content-center p-2 gap-3">
-                <button class="btn btn-primary">specializ1</button>
-                <button class="btn btn-primary">specializ2</button>
-                <button class="btn btn-primary">specializ3</button>
-                <button class="btn btn-primary">specializ4</button>
-                <button class="btn btn-primary">specializ5</button>
+                <button class="btn btn-primary" v-for="spec in specs">{{ spec.name }}</button>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-md-4">
@@ -45,7 +65,7 @@ h1 {
 }
 
 .background_color {
-    background: rgb(0,90,151);
-    background: linear-gradient(0deg, rgba(0,90,151,1) 0%, rgba(43,151,172,1) 100%);
+    background: rgb(0, 90, 151);
+    background: linear-gradient(0deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
 </style>
