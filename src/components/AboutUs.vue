@@ -40,9 +40,7 @@ export default {
             </div>
             <div class="d-flex px-3 m-2 p-2 container_card justify-content-center">
                 <div class="d-flex align-items-center px-2 text-center ">
-                    <h1><em><strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam delectus, nemo
-                                deserunt necessitatibus cumque laborum autem! Velit consectetur consequuntur, magni nam
-                                maxime quaerat veritatis. Velit quod et illo labore molestias?</strong></em></h1>
+                    <img src="//platform.docplanner.com/img/it/homepage/homepage-pro-banner@2x.webp" loading="lazy" class="w-100">
                 </div>
             </div>
 
