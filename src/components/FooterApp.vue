@@ -88,13 +88,11 @@ export default {
 
 <style lang="scss" scoped>
 .social div {
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     border-radius: 50%;
     background-color: #005a97;
-    text-align: center;
-    line-height: 40px;
-    font-size: 20px;
+    line-height: 2.5rem;
 }
 
 ul {
@@ -118,11 +116,15 @@ a:hover{
 }
 
 .logo {
-    height: 100px;
+    height: 6.25rem;
     width: 15.625rem;
 }
 
 .icons{
-    color: white;
+    color: #fff;
+    font-size: 1.25rem;
+    &:hover{
+        color: #fff;
+    }
 }
 </style>

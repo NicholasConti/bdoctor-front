@@ -15,12 +15,12 @@ export default {
                 </div>
             </router-link>
             <!-- @-MD-LINK -->
-            <div class="d-flex gap-5 align-items-center">
+            <div class="d-flex gap-4 align-items-center">
                 <div class="hov d-none d-md-block"><router-link :to="{ name: 'InfoDoctor' }">
-                        <h5>Sign-up</h5>
+                        <a class="fw-bold">Sign-up</a>
                     </router-link></div>
-                <div class="hov d-none d-md-block gap-5"><router-link :to="{ name: 'InfoDoctor' }">
-                        <h5 class="d-flex gap-2"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-4" />Login</h5>
+                <div class="hov d-none d-md-block"><router-link :to="{ name: 'InfoDoctor' }">
+                        <a class="d-flex gap-2 fw-bold"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-5" />Login</a>
                     </router-link></div>
             </div>
             <!-- @-SM-DROPDOWN-ICON -->
