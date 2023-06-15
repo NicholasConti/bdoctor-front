@@ -6,7 +6,7 @@ export default {
 
 <template>
     <!-- Main Container -->
-    <footer class="container-fluid">
+    <footer class="container">
         <div class="row text-center">
             <!-- info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-md-block d-none  py-5">
