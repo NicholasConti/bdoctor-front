@@ -31,7 +31,7 @@ export default {
 <template>
     <div class="background_color">
         <div class="container">
-            <h1 class="text-center">h1 con bella scritta</h1>
+            <h1 class="text-center text-white py-4">Seek your doctor, for within their care lies healing and hope.</h1>
             <form action="" method="get">
                 <div class="input-group mb-3 w-50 m-auto">
                     <input type="text" class="form-control" aria-describedby="basic-addon1">
