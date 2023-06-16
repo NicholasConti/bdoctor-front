@@ -41,7 +41,7 @@ export default {
             <div class="d-flex justify-content-center p-2 gap-3">
                 <button class="btn btn-primary" v-for="spec in specs">{{ spec.name }}</button>
             </div>
-            <div class="row">
+            <div class="row py-4">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in  doctors ">
                     <div class="card">
                         <img :src="doctor.image" class="card-img-top" :alt="doctor.user.name">
