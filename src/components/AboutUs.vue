@@ -59,7 +59,7 @@ export default {
                 </div>
             </div>
 
-            <div class="d-flex flex-column flex-md-row px-3 m-2 p-2 py-4 container_card_big justify-content-center">
+            <div class="d-flex flex-column flex-md-row px-3 m-2 p-2 py-5 container_card_big justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-6 box_img px-2 ">
                     <img src="//platform.docplanner.com/img/it/homepage/homepage-pro-banner@2x.webp" loading="lazy"
                         class="w-100">

@@ -46,11 +46,9 @@ export default {
                 </ul>
             </div>
             <!-- Logo+Info -->
-            <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto ">
+            <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto pt-4">
                 <div>
-                    <img class=" logo img-fluid"
-                        src="https://findvectorlogo.com/wp-content/uploads/2018/11/best-doctors-vector-logo.png"
-                        alt="bdoctors">
+                    <img class="logo pb-2" src="/image/logo_fb2.jpg" alt="bdoctors">
                 </div>
                 <div class="d-flex justify-content-center">
                     <ul>
@@ -58,7 +56,7 @@ export default {
                             <h6>BestDoctors italy S.r.l</h6>
                         </li>
                         <li>
-                            <h6>Piazzale delle belle figliole</h6>
+                            <h6>Piazzale delle belle figliuole</h6>
                         </li>
                         <li>
                             <h6>00196 Roma (RM), Italia</h6>
@@ -70,9 +68,9 @@ export default {
                 </div>
             </div>
             <!-- Logo+Info -->
-        </div>
+        </div><hr>
         <!-- Icons -->
-        <div class="social text-center d-flex justify-content-center gap-1">
+        <div class="social text-center d-flex justify-content-center gap-1 pt-3">
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a></div>
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a></div>
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-facebook-f" /></a></div>
@@ -110,13 +108,13 @@ a {
     text-decoration: none;
     font-size: 12px;
     color: #98a1ab;
+    padding: 5px 10px;
+    border-radius: 10px;
+    &:hover{
+        background-color: rgba(0, 50, 200, 0.1);
+    }
 }
-a:hover{
-    color:  #005a97;
-}
-
 .logo {
-    height: 6.25rem;
     width: 15.625rem;
 }
 
