@@ -42,14 +42,12 @@ export default {
                 <button class="btn btn-primary" v-for="spec in specs">{{ spec.name }}</button>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-sm-6 col-md-4">
+                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in  doctors ">
                     <div class="card">
-                        <img src="/image/doct1.jpg" class="card-img-top" alt="di">
+                        <img :src="doctor.image" class="card-img-top" :alt="doctor.user.name">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the
-                                card's content.</p>
+                            <h5 class="card-title">Dr. {{ doctor.user.name }} {{ doctor.user.surname }}</h5>
+                            <p class="card-text">{{ doctor.description }}</p>
                             <router-link :to="{ name: 'InfoDoctor' }">vai in pace</router-link>
                         </div>
                     </div>
