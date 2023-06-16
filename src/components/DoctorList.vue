@@ -1,7 +1,12 @@
 <script>
 import axios from 'axios';
+import CardDoctor from './CardDoctor.vue';
 export default {
     name: 'DoctorList',
+    components: {
+        CardDoctor
+    },
+
     data() {
         return {
             doctors: [],
@@ -44,14 +49,8 @@ export default {
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
 
-                    <div class="card">
-                        <img :src="doctor.image" class="card-img-top" :alt="doctor.user.name">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. {{ doctor.user.name }} {{ doctor.user.surname }}</h5>
-                            <p class="card-text">{{ doctor.description }}</p>
-                            <router-link :to="{ name: 'InfoDoctor' }">vai in pace</router-link>
-                        </div>
-                    </div>
+                    <CardDoctor :doc="doctor" />
+               
                 </div>
             </div>
         </div>
