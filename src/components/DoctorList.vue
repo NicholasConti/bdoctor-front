@@ -47,7 +47,7 @@ export default {
                 <div class="container" style="max-width: 960px;">
                     <div class="row ">
                         <div class="col">
-                            <button class="btn btn-primary m-1" v-for="spec in specs">{{ spec.name }}</button>
+                            <button class="btn btn_color btn-primary m-1" v-for="spec in specs">{{ spec.name }}</button>
                         </div>
                     </div>
                 </div>
@@ -70,4 +70,9 @@ h1 {
     background: rgb(0, 90, 151);
     background: linear-gradient(0deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
+
+.btn_color{
+    background-color: #005a97;
+}
+
 </style>
