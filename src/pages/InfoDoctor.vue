@@ -5,7 +5,7 @@ export default {
     name: 'InfoDoctor',
     data() {
         return {
-            selectedForm: 'message', // Imposta il valore predefinito su 'message' per visualizzare il form di messaggio
+            selectedForm: 'message',
             doctor: null
         };
     },
@@ -28,7 +28,7 @@ export default {
     <div class="background_color">
         <div class="container">
             <!-- doctor -->
-            <div class="d-flex text-white">
+            <div class="d-flex text-white border_bottom">
                 <div class="container_img px-4 py-4">
                     <img src="/image/doct1.jpg" class="card-img-top img_doctor" alt="di" style="width: 200px;">
                 </div>
@@ -48,12 +48,10 @@ export default {
                 </div>
                 <!-- Info-doctor -->
             </div>
-            <hr>
-            <div class="container cv" >
+            <div class="m-4 cv " >
                 <h1>cv</h1>
             </div>
-            <hr>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center border_top">
                 <div class="px-3">
                     <button @click="selectedForm = 'message'" class="btn btn-primary">Book your visit</button>
                 </div>
@@ -126,7 +124,6 @@ export default {
                                     <input class="btn" type="submit" value="Send Review">
                                 </div>
                                 </div>
-                                
                             </div>
                         </form>
                     </div>
@@ -148,7 +145,19 @@ export default {
     background: rgb(0, 90, 151);
     background: linear-gradient(180deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
+.border_bottom{
+    border-bottom: 1px solid white;
+    padding: 10px 20px;
+}
+.border_top{
+    border-top: 1px solid white;
+    padding: 10px 20px;
+}
 
+.container_img{
+    border-right: 1px solid white;
+    padding: 0px 20px;
+}
 .img_doctor {
     border-radius: 10px;
     height: 15.625rem;
@@ -193,7 +202,6 @@ export default {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    
 }
 .btn:hover{
     transform: scale(1.1);
@@ -201,8 +209,37 @@ export default {
 }
 
 .cv{
-    background-color: white;
+    background-color: rgb(237, 227, 227);
     border-radius: 5px;
 }
+
+
+.row_size {
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        transition: box-shadow 0.3s ease;
+    }
+
+    /* Stile per l'effetto di hover */
+    .row_size:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Stile per il placeholder dei campi di input */
+    ::placeholder {
+        color: #999;
+    }
+
+    /* Stile per il testo del campo di input */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        color: #333;
+        font-size: 16px;
+    }
+
+
 
 </style>
