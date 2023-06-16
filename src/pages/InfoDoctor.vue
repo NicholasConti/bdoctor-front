@@ -1,13 +1,25 @@
 
 <script>
-
+import axios from 'axios';
 export default {
     name: 'InfoDoctor',
     data() {
         return {
-            selectedForm: 'message'
+            selectedForm: 'message',
+            doctor: null
         };
-    }
+    },
+    // methods: {
+    //     getDoctor() {
+    //         axios.get("http://127.0.0.1:8000/api/doctors/" + this.$route.params.id).then((response) => {
+    //             this.doctor = response.data.results;
+    //             console.log(this.doctor)
+    //         })
+    //     }
+    // },
+    // created() {
+    //     this.getDoctor();
+    // }
 }
 
 </script>
