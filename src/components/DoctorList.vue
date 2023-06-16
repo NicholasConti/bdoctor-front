@@ -44,13 +44,17 @@ export default {
                 </div>
             </form>
             <div class="d-flex justify-content-center p-2 gap-3">
-                <button class="btn btn-primary" v-for="spec in specs">{{ spec.name }}</button>
+                <div class="container" style="max-width: 960px;">
+                    <div class="row ">
+                        <div class="col">
+                            <button class="btn btn-primary m-1" v-for="spec in specs">{{ spec.name }}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
-
                     <CardDoctor :doc="doctor" />
-               
                 </div>
             </div>
         </div>
