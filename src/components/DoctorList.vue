@@ -48,7 +48,9 @@ export default {
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
+
                     <CardDoctor :doc="doctor" />
+               
                 </div>
             </div>
         </div>
