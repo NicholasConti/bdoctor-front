@@ -43,6 +43,7 @@ export default {
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
+
                     <div class="card">
                         <img :src="doctor.image" class="card-img-top" :alt="doctor.user.name">
                         <div class="card-body">
