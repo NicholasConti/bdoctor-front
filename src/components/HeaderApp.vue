@@ -16,10 +16,10 @@ export default {
             </router-link>
             <!-- @-MD-LINK -->
             <div class="d-flex gap-4 align-items-center">
-                <div class="hov d-none d-md-block"><router-link :to="{ name: 'InfoDoctor' }">
+                <div class="hov d-none d-md-block px-3 py-2"><router-link :to="{ name: 'InfoDoctor' }">
                         <a class="fw-bold">Sign-up</a>
                     </router-link></div>
-                <div class="hov d-none d-md-block"><router-link :to="{ name: 'InfoDoctor' }">
+                <div class="hov d-none d-md-block px-3 py-2"><router-link :to="{ name: 'InfoDoctor' }">
                         <a class="d-flex gap-2 fw-bold"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-5" />Login</a>
                     </router-link></div>
             </div>
@@ -47,7 +47,8 @@ export default {
 }
 .hov {
     &:hover {
-        border-bottom: 1px solid #2b97ac;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
     }
 }
 a {
