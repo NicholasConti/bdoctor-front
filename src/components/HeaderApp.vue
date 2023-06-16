@@ -45,13 +45,11 @@ export default {
 .logo {
     width: 13.5rem;
 }
-
 .hov {
     &:hover {
         border-bottom: 1px solid #2b97ac;
     }
 }
-
 a {
     text-decoration: none;
 }
