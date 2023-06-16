@@ -28,8 +28,8 @@ export default {
     <div class="background_color">
         <div class="container">
             <!-- doctor -->
-            <div class="d-flex text-white border_bottom">
-                <div class="container_img px-4 py-4">
+            <div class="d-flex flex-wrap text-white border_bottom">
+                <div class="px-4 py-4">
                     <img src="/image/doct1.jpg" class="card-img-top img_doctor" alt="di" style="width: 200px;">
                 </div>
                 <!-- Info-doctor -->
@@ -41,14 +41,15 @@ export default {
                     <h6>Telefono</h6>
                     <h6>spec</h6>
                 </div>
-                <div class="px-4 py-4 box_description">
+                <div class="px-4 py-4 col-md box_description">
                     <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est magni dolore recusandae, officia omnis
                         explicabo, voluptatum eos atque, nam maiores laudantium hic numquam minima fugit commodi
                         reprehenderit consequuntur eum vel?</h4>
                 </div>
                 <!-- Info-doctor -->
             </div>
-            <div class="m-4 cv " >
+
+            <div class="m-4 cv ">
                 <h1>cv</h1>
             </div>
             <div class="d-flex justify-content-center border_top">
@@ -109,20 +110,20 @@ export default {
                             <div class="d-flex justify-content-center align-items-center py-2 px-3">
                                 <div class="py-3">
                                     <div class="rating">
-                                    <input type="radio" name="rating" id="star5" value="5">
-                                    <label for="star5"></label>
-                                    <input type="radio" name="rating" id="star4" value="4">
-                                    <label for="star4"></label>
-                                    <input type="radio" name="rating" id="star3" value="3">
-                                    <label for="star3"></label>
-                                    <input type="radio" name="rating" id="star2" value="2">
-                                    <label for="star2"></label>
-                                    <input type="radio" name="rating" id="star1" value="1">
-                                    <label for="star1"></label>
-                                </div>
-                                <div class="py-3">
-                                    <input class="btn" type="submit" value="Send Review">
-                                </div>
+                                        <input type="radio" name="rating" id="star5" value="5">
+                                        <label for="star5"></label>
+                                        <input type="radio" name="rating" id="star4" value="4">
+                                        <label for="star4"></label>
+                                        <input type="radio" name="rating" id="star3" value="3">
+                                        <label for="star3"></label>
+                                        <input type="radio" name="rating" id="star2" value="2">
+                                        <label for="star2"></label>
+                                        <input type="radio" name="rating" id="star1" value="1">
+                                        <label for="star1"></label>
+                                    </div>
+                                    <div class="py-3">
+                                        <input class="btn" type="submit" value="Send Review">
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -140,24 +141,21 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 .background_color {
     background: rgb(0, 90, 151);
     background: linear-gradient(180deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
-.border_bottom{
+
+.border_bottom {
     border-bottom: 1px solid white;
     padding: 10px 20px;
 }
-.border_top{
+
+.border_top {
     border-top: 1px solid white;
     padding: 10px 20px;
 }
 
-.container_img{
-    border-right: 1px solid white;
-    padding: 0px 20px;
-}
 .img_doctor {
     border-radius: 10px;
     height: 15.625rem;
@@ -191,11 +189,13 @@ export default {
 .box_description {
     width: 34.375rem;
 }
+
 .row_size {
     width: 100%;
     border-radius: 5px;
 }
-.btn{
+
+.btn {
     padding: 10px 20px;
     background-color: #005a97;
     color: #fff;
@@ -203,43 +203,38 @@ export default {
     border-radius: 10px;
     cursor: pointer;
 }
-.btn:hover{
+
+.btn:hover {
     transform: scale(1.1);
     transition: 0.5s ease;
 }
 
-.cv{
+.cv {
     background-color: rgb(237, 227, 227);
     border-radius: 5px;
 }
 
 
 .row_size {
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-        width: 100%;
-        transition: box-shadow 0.3s ease;
-    }
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
 
-    /* Stile per l'effetto di hover */
-    .row_size:hover {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
+.row_size:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
 
-    /* Stile per il placeholder dei campi di input */
-    ::placeholder {
-        color: #999;
-    }
+::placeholder {
+    color: #999;
+}
 
-    /* Stile per il testo del campo di input */
-    input[type="text"],
-    input[type="email"],
-    textarea {
-        color: #333;
-        font-size: 16px;
-    }
-
-
-
+input[type="text"],
+input[type="email"],
+textarea {
+    color: #333;
+    font-size: 16px;
+}
 </style>
