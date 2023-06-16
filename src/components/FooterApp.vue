@@ -21,7 +21,7 @@ export default {
                     <li><a href="">In che modo ordiniamo i risultati</a></li>
                 </ul>
             </div>
-            
+            <!-- info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-lg-block d-none py-5">
                 <h5>Per i Pazienti</h5>
                 <ul>
@@ -35,7 +35,7 @@ export default {
                     <li><a href="">App Mobile</a></li>
                 </ul>
             </div>
-            <!-- /info -->
+            <!-- info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-lg-block d-none  py-5">
                 <h5>Per i professionisti sanitari</h5>
                 <ul>
@@ -69,7 +69,7 @@ export default {
                     </ul>
                 </div>
             </div>
-            <!-- /Logo+Info -->
+            <!-- Logo+Info -->
         </div>
         <!-- Icons -->
         <div class="social text-center d-flex justify-content-center gap-1">
@@ -79,10 +79,10 @@ export default {
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-youtube" /></a></div>
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a></div>
         </div>
-        <!-- /Icons -->
+        <!-- Icons -->
         <h5 class="text-center py-3">www.bdoctors.it © 2023 - Prenota la tua visita online!</h5>
     </footer>
-    <!-- /Main Container -->
+    <!-- Main Container -->
 </template>
 
 

@@ -18,7 +18,7 @@ export default {
         background-image: url(/image/jumbo1.jpg);
         background-size: cover;
         background-position: center;
-        height: 300px;
+        height: 350px;
         border-bottom: 10px solid #2b97ac ;
     }
 </style>
