@@ -23,7 +23,7 @@ export default {
                 </div>
                 
                 <div class="hov d-none d-md-block px-3 py-2 border border border-primary-subtle rounded">
-                        <a class="d-flex gap-2 fw-bold" href="http://127.0.0.1:8000/"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-5" />Login</a>
+                    <a class="d-flex gap-2 fw-bold" href="http://127.0.0.1:8000/"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-5" />Login</a>
                 </div>
             </div>
             <!-- @-SM-DROPDOWN-ICON -->
@@ -45,10 +45,10 @@ export default {
 
 <style lang="scss" scoped>
 section{
-    box-shadow: rgba(37, 127, 236, 0.8) -1px 0px 20px -1px inset
+    box-shadow: rgba(37, 127, 236, 0.8) -1px 0px 20px -1px inset;
 }
 .logo {
-    width: 200px;
+    width: 9.375rem;
 }
 .hov {
     &:hover {
