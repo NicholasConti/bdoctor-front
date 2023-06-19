@@ -17,12 +17,16 @@ export default {
         getDoctors() {
             axios.get('http://127.0.0.1:8000/api/doctors').then((response) => {
                 this.doctors = response.data.results;
-                console.log(this.doctors);
             })
         },
         getSpec() {
             axios.get('http://127.0.0.1:8000/api/specializations').then((response) => {
                 this.specs = response.data.results;
+            })
+        },
+        getDoctorBySpec(idSpec){
+            axios.get('http://127.0.0.1:8000/api/doctors/specialization/'+ idSpec).then((response) => {
+                this.doctors = response.data.results;
             })
         }
     },
@@ -47,15 +51,19 @@ export default {
                 <div class="container" style="max-width: 960px;">
                     <div class="row ">
                         <div class="col">
-                            <button class="btn btn_color btn-primary m-1" v-for="spec in specs">{{ spec.name }}</button>
+                            <button class="btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+                            <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" v-if="doctors.length > 0">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
                     <CardDoctor :doc="doctor" />
                 </div>
+            </div>
+            <div class="row text-center mt-4" v-else>
+                <h2>No Doctors available</h2>
             </div>
         </div>
     </div>
@@ -73,6 +81,7 @@ h1 {
 
 .btn_color{
     background-color: #005a97;
+    border: none;
 }
 
 </style>
