@@ -9,17 +9,17 @@ export default {
             doctor: null
         };
     },
-    // methods: {
-    //     getDoctor() {
-    //         axios.get("http://127.0.0.1:8000/api/doctors/" + this.$route.params.id).then((response) => {
-    //             this.doctor = response.data.results;
-    //             console.log(this.doctor)
-    //         })
-    //     }
-    // },
-    // created() {
-    //     this.getDoctor();
-    // }
+    methods: {
+        getDoctor() {
+            axios.get("http://127.0.0.1:8000/api/doctors/" + this.$route.params.id).then((response) => {
+                this.doctor = response.data.results;
+                console.log(this.doctor);
+            })
+        }
+    },
+    created() {
+        this.getDoctor();
+    }
 }
 
 </script>
@@ -35,16 +35,18 @@ export default {
                 <!-- Info-doctor -->
                 <div class="px-4 py-4">
                     <h4>sponsor</h4>
-                    <h6></h6>
-                    <h6>Cognome</h6>
-                    <h6>Indirizzo</h6>
-                    <h6>Telefono</h6>
-                    <h6>spec</h6>
+                    <h6>Nome: {{ doctor.user.name }}</h6>
+                    <h6>Cognome: {{ doctor.user.surname }}</h6>
+                    <h6>Indirizzo: {{ doctor.user.address }}</h6>
+                    <h6>Telefono: {{ doctor.telephone }}</h6>
+                    <h6>spec: 
+                        <span v-for="item in doctor.specializations">
+                            {{ item.name }},
+                        </span>
+                    </h6>
                 </div>
                 <div class="px-4 py-4 col-md box_description">
-                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est magni dolore recusandae, officia omnis
-                        explicabo, voluptatum eos atque, nam maiores laudantium hic numquam minima fugit commodi
-                        reprehenderit consequuntur eum vel?</h4>
+                    <h4>{{ doctor.description }}</h4>
                 </div>
                 <!-- Info-doctor -->
             </div>
