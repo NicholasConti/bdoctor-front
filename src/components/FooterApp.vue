@@ -114,6 +114,7 @@ a {
         background-color: rgba(0, 50, 200, 0.1);
     }
 }
+
 .logo {
     width: 15.625rem;
 }
