@@ -13,7 +13,7 @@ const router = createRouter({
             component: AppHome
         },
         {
-            path: '/details',
+            path: '/details/:id',
             name: 'InfoDoctor',
             component: InfoDoctor
         },

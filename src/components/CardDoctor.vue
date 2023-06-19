@@ -15,7 +15,7 @@ export default {
             <div class="card-body text-white">
                 <h6 class="card-title">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
                 <p class="card-text">{{ doc.description }}</p>
-                    <router-link  class="text-white" :to="{ name: 'InfoDoctor' }"><h3 id="hover-color">Seleziona</h3></router-link>
+                    <router-link  class="text-white" :to="{ name: 'InfoDoctor', params:{id:doc.id} }"><h3 id="hover-color">Seleziona</h3></router-link>
             </div>
         </div>
     </div>

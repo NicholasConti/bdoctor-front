@@ -19,13 +19,11 @@ export default {
             <!-- @-MD-LINK -->
             <div class="d-flex gap-2 align-items-center">
                 <div class="hov d-none d-md-block px-3 py-2 border border border-primary-subtle rounded">
-                    <router-link :to="{ name: 'InfoDoctor' }"><a class="fw-bold">Sign-up</a></router-link>
+                    <a class="fw-bold" href="http://127.0.0.1:8000/register">Sign-up</a>
                 </div>
                 
                 <div class="hov d-none d-md-block px-3 py-2 border border border-primary-subtle rounded">
-                    <router-link :to="{ name: 'InfoDoctor' }">
-                        <a class="d-flex gap-2 fw-bold"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-5" />Login</a>
-                    </router-link>
+                        <a class="d-flex gap-2 fw-bold" href="http://127.0.0.1:8000/"><font-awesome-icon icon="fa-solid fa-user-doctor" class="fs-5" />Login</a>
                 </div>
             </div>
             <!-- @-SM-DROPDOWN-ICON -->
@@ -36,12 +34,11 @@ export default {
                     <font-awesome-icon icon="fa-solid fa-bars" class="fs-3 " />
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><button class="dropdown-item" type="button"><router-link
-                                :to="{ name: 'InfoDoctor' }"><span>Register</span></router-link></button></li>
-                    <li><button class="dropdown-item" type="button"><router-link
-                                :to="{ name: 'InfoDoctor' }"><span>Login</span></router-link></button></li>
+                    <li><button class="dropdown-item" type="button"><a href="http://127.0.0.1:8000/">Register</a></button></li>
+                    <li><button class="dropdown-item" type="button"><a href="http://127.0.0.1:8000/">Login</a></button></li>
                 </ul>
             </div>
+
         </div>
     </section>
 </template>
