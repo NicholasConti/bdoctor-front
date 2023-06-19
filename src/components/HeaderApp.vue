@@ -34,7 +34,7 @@ export default {
                     <font-awesome-icon icon="fa-solid fa-bars" class="fs-3 " />
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><button class="dropdown-item" type="button"><a href="http://127.0.0.1:8000/">Register</a></button></li>
+                    <li><button class="dropdown-item" type="button"><a href="http://127.0.0.1:8000/register">Register</a></button></li>
                     <li><button class="dropdown-item" type="button"><a href="http://127.0.0.1:8000/">Login</a></button></li>
                 </ul>
             </div>
