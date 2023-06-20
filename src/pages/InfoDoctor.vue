@@ -29,7 +29,7 @@ export default {
             <!-- doctor -->
             <div class="d-flex flex-wrap text-white border_bottom">
                 <div class="px-4 py-4">
-                    <img src="/image/doct1.jpg" class="card-img-top img_doctor" alt="di" style="width: 200px;">
+                    <img :src="doctor.image" class="card-img-top img_doctor" alt="di" style="width: 200px;">
                 </div>
                 <!-- Info-doctor -->
                 <div class="px-4 py-4">
@@ -51,7 +51,7 @@ export default {
             </div>
 
             <div class="m-4 cv ">
-                <h1>cv</h1>
+                <object :data="doctor.cv" type="application/pdf" width="100%" height="300px"></object>
             </div>
             <div class="d-flex justify-content-center border_top">
                 <div class="px-3">
