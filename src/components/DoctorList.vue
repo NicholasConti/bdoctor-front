@@ -20,7 +20,7 @@ export default {
             })
         },
         gotoSearch() {
-            this.$router.push({ name: 'search', params: { text: this.search } });
+            this.$router.push({ name: 'search', params: { text: this.search.trim() } });
         }
     },
     created() {
