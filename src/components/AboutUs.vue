@@ -85,7 +85,8 @@ export default {
                 </div>
                 <div class="col-md-10 col-lg-6 d-flex align-items-center">
                     <div class="px-5 py-2">
-                        <p>We connect you with dedicated doctors ready to assist you at any time.Our platform is designed to help you find the right doctor to
+                        <p>
+                            We connect you with dedicated doctors ready to assist you at any time.Our platform is designed to help you find the right doctor to
                             meet your needs.
                             With our user-friendly search functionality, you can easily find doctors specializing in various
                             fields and read reviews from satisfied patients. Rest assured that all the doctors in our
@@ -94,7 +95,7 @@ export default {
                             who are dedicated to helping you live a healthier life.
                         </p>
                         <div class="box_btn">
-                            <button @click="scrollToTop" class="scroll-top-button">Torna in cima</button>
+                            <button @click="scrollToTop" class="scroll-top-button">Scroll to top</button>
                         </div>
                     </div>
                 </div>

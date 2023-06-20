@@ -16,7 +16,6 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 
-
 import { router } from './router';
 
 library.add(faDownload, faBars, faUserDoctor, faTwitter, faInstagram, faFacebookF, faYoutube, faLinkedinIn);
