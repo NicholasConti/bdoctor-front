@@ -13,7 +13,6 @@ export default {
         getDoctor() {
             axios.get("http://127.0.0.1:8000/api/doctors/" + this.$route.params.id).then((response) => {
                 this.doctor = response.data.results;
-                console.log(this.doctor);
             })
         }
     },

@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             doctors: [],
-            specs: [],
+            search: ''
         }
     },
     methods: {
@@ -19,19 +19,11 @@ export default {
                 this.doctors = response.data.results;
             })
         },
-        getSpec() {
-            axios.get('http://127.0.0.1:8000/api/specializations').then((response) => {
-                this.specs = response.data.results;
-            })
-        },
-        getDoctorBySpec(idSpec){
-            axios.get('http://127.0.0.1:8000/api/doctors/specialization/'+ idSpec).then((response) => {
-                this.doctors = response.data.results;
-            })
+        gotoSearch(){
+            this.$router.push({ name: 'search', params:{ text: this.search } });
         }
     },
     created() {
-        this.getSpec();
         this.getDoctors();
     }
 }
@@ -43,21 +35,11 @@ export default {
             <h2 class="text-center text-white py-4">"Find Your Perfect Doctor: Search and Connect with them"</h2>
             <form action="" method="get">
                 <div class="input-group mb-3 w-50 m-auto">
-                    <input type="text" class="form-control" aria-describedby="basic-addon1">
-                    <span class="input-group-text" id="basic-addon1">Search</span>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search">
+                    <span class="input-group-text cursor-pointer" id="basic-addon1" @click="gotoSearch()">Search</span>
                 </div>
             </form>
-            <div class="d-flex justify-content-center p-2 gap-3">
-                <div class="container" style="max-width: 960px;">
-                    <div class="row ">
-                        <div class="col">
-                            <button class="btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
-                            <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" v-if="doctors.length > 0">
+            <div class="row mt-4" v-if="doctors.length > 0">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
                     <CardDoctor :doc="doctor" />
                 </div>
@@ -82,6 +64,10 @@ h1 {
 .btn_color{
     background-color: #005a97;
     border: none;
+}
+
+.cursor-pointer{
+    cursor: pointer;
 }
 
 </style>
