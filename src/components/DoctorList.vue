@@ -19,8 +19,8 @@ export default {
                 this.doctors = response.data.results;
             })
         },
-        gotoSearch(){
-            this.$router.push({ name: 'search', params:{ text: this.search } });
+        gotoSearch() {
+            this.$router.push({ name: 'search', params: { text: this.search } });
         }
     },
     created() {
@@ -33,12 +33,11 @@ export default {
     <div class="background_color">
         <div class="container">
             <h2 class="text-center text-white py-4">"Find Your Perfect Doctor: Search and Connect with them"</h2>
-            <form action="" method="get">
-                <div class="input-group mb-3 w-50 m-auto">
-                    <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search">
-                    <span class="input-group-text cursor-pointer" id="basic-addon1" @click="gotoSearch()">Search</span>
-                </div>
-            </form>
+            <div class="input-group mb-3 w-50 m-auto">
+                <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
+                    @keyup.enter="gotoSearch()">
+                <span class="input-group-text cursor-pointer" id="basic-addon1" @click="gotoSearch()">Search</span>
+            </div>
             <div class="row mt-4" v-if="doctors.length > 0">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
                     <CardDoctor :doc="doctor" />
@@ -61,13 +60,12 @@ h1 {
     background: linear-gradient(0deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
 
-.btn_color{
+.btn_color {
     background-color: #005a97;
     border: none;
 }
 
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
 }
-
 </style>
