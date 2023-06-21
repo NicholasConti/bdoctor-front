@@ -4,24 +4,24 @@ import axios from 'axios';
 
 export default {
     name: 'AppSearch',
-    components:{
+    components: {
         CardDoctor
     },
-    data(){
+    data() {
         return {
             doctors: [],
             specs: [],
             search: ''
         }
     },
-    methods:{
+    methods: {
         getSpec() {
             axios.get('http://127.0.0.1:8000/api/specializations').then((response) => {
                 this.specs = response.data.results;
             })
         },
-        getDoctorBySpec(idSpec){
-            axios.get('http://127.0.0.1:8000/api/doctors/specialization/'+ idSpec).then((response) => {
+        getDoctorBySpec(idSpec) {
+            axios.get('http://127.0.0.1:8000/api/doctors/specialization/' + idSpec).then((response) => {
                 this.doctors = response.data.results;
             })
         },
@@ -30,17 +30,20 @@ export default {
                 this.doctors = response.data.results;
             })
         },
-        searchByText(){
-            axios.get('http://127.0.0.1:8000/api/doctors/search/'+this.search).then((response) => {
-                this.doctors = response.data.results;
-            })
+        searchByText() {
+            if (this.search.trim() != '') {
+                axios.get('http://127.0.0.1:8000/api/doctors/search/' + this.search).then((response) => {
+                    this.doctors = response.data.results;
+                });
+            }
+            else this.getDoctors();
         }
     },
     created() {
         this.getSpec();
         if (!this.$route.params.text) this.getDoctors();
         else {
-            this.search=this.$route.params.text;
+            this.search = this.$route.params.text;
             this.searchByText();
         }
     }
@@ -51,13 +54,15 @@ export default {
     <div class="background_color py-5">
         <div class="container">
             <div class="input-group mb-3 w-50 m-auto">
-                <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search" @keyup.enter="searchByText()">
+                <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
+                    @keyup.enter="searchByText()">
                 <span class="input-group-text cursor-pointer" id="basic-addon1" @click="searchByText()">Search</span>
             </div>
             <div class="d-flex justify-content-center p-2 gap-3">
                 <div class="container" style="max-width: 960px;">
                     <div class="row ">
                         <div class="col">
+                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
                             <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
                         </div>
@@ -81,11 +86,11 @@ export default {
     background: rgb(0, 90, 151);
     background: linear-gradient(0deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
-.act:focus{
-    background-color: rgba(0, 0, 250, 0.5 );
-}
-.cursor-pointer {
-    cursor: pointer;
+
+.act:focus {
+    background-color: rgba(0, 0, 250, 0.5);
 }
 
-</style>
+.cursor-pointer {
+    cursor: pointer;
+}</style>
