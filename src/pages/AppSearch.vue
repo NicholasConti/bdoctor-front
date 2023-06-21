@@ -29,6 +29,11 @@ export default {
             axios.get('http://127.0.0.1:8000/api/doctors').then((response) => {
                 this.doctors = response.data.results;
             })
+        },
+        searchByText(){
+            axios.get('http://127.0.0.1:8000/api/doctors/search/'+this.search).then((response) => {
+                this.doctors = response.data.results;
+            })
         }
     },
     created() {
@@ -36,6 +41,7 @@ export default {
         if (!this.$route.params.text) this.getDoctors();
         else {
             this.search=this.$route.params.text;
+            this.searchByText();
         }
     }
 }
@@ -45,8 +51,8 @@ export default {
     <div class="background_color py-5">
         <div class="container">
             <div class="input-group mb-3 w-50 m-auto">
-                <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search">
-                <span class="input-group-text cursor-pointer" id="basic-addon1" @click="">Search</span>
+                <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search" @keyup.enter="searchByText()">
+                <span class="input-group-text cursor-pointer" id="basic-addon1" @click="searchByText()">Search</span>
             </div>
             <div class="d-flex justify-content-center p-2 gap-3">
                 <div class="container" style="max-width: 960px;">
@@ -78,6 +84,9 @@ export default {
 }
 .act:focus{
     background-color: rgba(0, 0, 250, 0.5 );
+}
+.cursor-pointer {
+    cursor: pointer;
 }
 
 </style>
