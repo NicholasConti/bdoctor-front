@@ -50,20 +50,20 @@ export default {
                 <!-- Info-doctor -->
             </div>
 
-            <div class="m-4 cv ">
-                <object :data="doctor.cv" type="application/pdf" width="100%" height="300px"></object>
+            <div class="m-4 cv">
+                <object :data="doctor.cv" type="application/pdf" width="100%" height="500px"></object>
             </div>
-            <div class="d-flex justify-content-center border_top">
-                <div class="px-3">
-                    <button @click="selectedForm = 'message'" class="btn btn-primary">Book your visit</button>
+            <div class="d-flex justify-content-center border-top pt-5 mt-3">
+                <div class="px-4">
+                    <button @click="selectedForm = 'message'" class="btn act">Book your visit</button>
                 </div>
                 <div>
-                    <button @click="selectedForm = 'review'" class="btn btn-secondary">Leave a review </button>
+                    <button @click="selectedForm = 'review'" class="btn act">Leave a review </button>
                 </div>
             </div>
 
             <!-- doctor -->
-            <div class="container px-4 py-4">
+            <div class="container">
                 <!-- Message -->
                 <div class="container" v-if="selectedForm === 'message'">
                     <div class="text-white py-2">
@@ -83,7 +83,7 @@ export default {
                                     placeholder="Write something here" required></textarea>
                             </div>
                             <div class="d-flex justify-content-center py-3 px-3">
-                                <input class="btn" type="submit" value="Send">
+                                <input class="btn bg-success" type="submit" value="Send">
                             </div>
                         </form>
                     </div>
@@ -123,7 +123,7 @@ export default {
                                         <label for="star1"></label>
                                     </div>
                                     <div class="py-3">
-                                        <input class="btn" type="submit" value="Send Review">
+                                        <input class="btn bg-success" type="submit" value="Send Review">
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@ export default {
             </div>
             <!-- LinkHome -->
             <div class="text-center fs-3 py-4">
-                <router-link class="text-white " :to="{ name: 'home' }">Homepage</router-link>
+                <router-link class="text-primary " :to="{ name: 'home' }">Homepage</router-link>
             </div>
             <!-- LinkHome -->
         </div>
@@ -237,5 +237,8 @@ input[type="email"],
 textarea {
     color: #333;
     font-size: 16px;
+}
+.act:focus{
+    background-color: rgba(0, 0, 250, 0.5 );
 }
 </style>
