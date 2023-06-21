@@ -53,7 +53,16 @@ export default {
     computed: {
         filterResults() {
             if (this.filter == 1) {
-                console.log('media voti');
+                const copyDoctors = [...this.doctors];
+                return copyDoctors.sort((a, b) => {
+                    if (a.votes_avg_vote > b.votes_avg_vote) {
+                        return -1;
+                    }
+                    if (a.votes_avg_vote < b.votes_avg_vote) {
+                        return 1;
+                    }
+                    return 0;
+                });
             } else if (this.filter == 2) {
                 const copyDoctors = [...this.doctors];
                 return copyDoctors.sort((a, b) => {
@@ -99,8 +108,8 @@ export default {
                     <div class="row ">
                         <div class="col">
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
-                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
-                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs"
+                                @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
                         </div>
                     </div>
                 </div>
