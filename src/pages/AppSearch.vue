@@ -52,14 +52,15 @@ export default {
                 <div class="container" style="max-width: 960px;">
                     <div class="row ">
                         <div class="col">
-                            <button class="btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row" v-if="doctors.length > 0">
-                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
+                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors">
                     <CardDoctor :doc="doctor" />
                 </div>
             </div>
@@ -75,4 +76,8 @@ export default {
     background: rgb(0, 90, 151);
     background: linear-gradient(0deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
+.act:focus{
+    background-color: rgba(0, 0, 250, 0.5 );
+}
+
 </style>
