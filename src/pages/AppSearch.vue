@@ -84,12 +84,13 @@ export default {
                             @click="searchByText()">Search</span>
                     </div>
                 </div>
-                <div class="col-2"><select class="form-select" aria-label="Default select example" v-model="filter"
-                        @change="filterResults">
+                <div class="col-2">
+                    <select class="form-select" aria-label="Default select example" v-model="filter" @change="filterResults">
                         <option selected>---</option>
                         <option value="1">Order by Vote</option>
                         <option value="2">Order by Reviews</option>
-                    </select></div>
+                    </select>
+                </div>
             </div>
 
 

@@ -26,26 +26,27 @@ export default {
 <template>
     <div class="background_color">
         <div class="container">
-            <!-- doctor -->
+            <!-- DOCTOR -->
             <div class="d-flex flex-wrap text-white border_bottom">
                 <div class="pt-4 pe-3">
                     <img :src="doctor.image" class="card-img-top img_doctor" alt="doc_img">
                 </div>
-                <!-- Info-doctor -->
+                <!-- INFO-DOCTOR -->
                 <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
                     <span class="badge text-bg-success">Premium</span>
                     <h3 class="mb-2">Dr. {{ doctor.user.name  }} {{ doctor.user.surname }} </h3>
-                    <span> </span>
-                    <span><font-awesome-icon icon="fa-solid fa-envelope" class="me-1"/> {{ doctor.user.email }}</span>
-                    <span><font-awesome-icon icon="fa-solid fa-location-dot" class="me-1"/> {{ doctor.user.address }} </span>
-                    <span><font-awesome-icon icon="fa-solid fa-phone-flip" class="me-1"/> {{ doctor.telephone }} </span>
-                    <span><font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-1"/> <span v-for="item in doctor.specializations">{{ item.name }}, </span></span>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><font-awesome-icon icon="fa-solid fa-envelope"/> {{ doctor.user.email }}</li>
+                        <li><font-awesome-icon icon="fa-solid fa-location-dot"/> {{ doctor.user.address }} </li>
+                        <li><font-awesome-icon icon="fa-solid fa-phone-flip"/> {{ doctor.telephone }} </li>
+                        <li><font-awesome-icon icon="fa-solid fa-suitcase-medical"/> <span v-for="item in doctor.specializations"> {{ item.name }}, </span></li>
+                    </ul>
                 </div>
                 <div class="px-5 mx-5 pt-2 col-md box_description">
                     <h4 class="text-center">About me</h4>
                     <p>{{ doctor.description }}</p>
                 </div>
-                <!-- Info-doctor -->
+                <!-- /INFO-DOCTOR -->
             </div>
 
             <div class="m-4 cv">
@@ -60,9 +61,9 @@ export default {
                 </div>
             </div>
 
-            <!-- doctor -->
+            <!-- DOCTOR -->
             <div class="container">
-                <!-- Message -->
+                <!-- MESSAGE -->
                 <div class="container" v-if="selectedForm === 'message'">
                     <div class="text-white py-2">
                         <h2 class="py-3">Contact Doctor </h2>
@@ -86,9 +87,9 @@ export default {
                         </form>
                     </div>
                 </div>
-                <!-- Message -->
+                <!-- /MESSAGE -->
 
-                <!-- Review -->
+                <!-- REVIEW -->
                 <div class="container" v-else>
                     <div class="text-white py-2">
                         <h2 class="py-3">Review Doctor</h2>
@@ -128,13 +129,13 @@ export default {
                         </form>
                     </div>
                 </div>
-                <!-- Review -->
+                <!-- /REVIEW -->
             </div>
-            <!-- LinkHome -->
+            <!-- LINKHOME -->
             <div class="text-center fs-3 py-4">
                 <router-link class="text-primary " :to="{ name: 'home' }">Homepage</router-link>
             </div>
-            <!-- LinkHome -->
+            <!-- /LINKHOME -->
         </div>
     </div>
 </template>
