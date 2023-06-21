@@ -9,6 +9,7 @@ export default {
     },
     data() {
         return {
+            filter: null,
             doctors: [],
             specs: [],
             search: ''
@@ -38,6 +39,8 @@ export default {
             }
             else this.getDoctors();
         }
+
+
     },
     created() {
         this.getSpec();
@@ -46,6 +49,25 @@ export default {
             this.search = this.$route.params.text;
             this.searchByText();
         }
+    },
+    computed: {
+        filterResults() {
+            if (this.filter == 1) {
+                console.log('media voti');
+            } else if (this.filter == 2) {
+                const copyDoctors = [...this.doctors];
+                return copyDoctors.sort((a, b) => {
+                    if (a.reviews_count > b.reviews_count) {
+                        return -1;
+                    }
+                    if (a.reviews_count < b.reviews_count) {
+                        return 1;
+                    }
+                    return 0;
+                });
+            }
+            return this.doctors;
+        }
     }
 }
 </script>
@@ -53,11 +75,24 @@ export default {
 <template>
     <div class="background_color py-5">
         <div class="container">
-            <div class="input-group mb-3 w-50 m-auto">
-                <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
-                    @keyup.enter="searchByText()">
-                <span class="input-group-text cursor-pointer" id="basic-addon1" @click="searchByText()">Search</span>
+            <div class="row">
+                <div class="col-10">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
+                            @keyup.enter="searchByText()">
+                        <span class="input-group-text cursor-pointer" id="basic-addon1"
+                            @click="searchByText()">Search</span>
+                    </div>
+                </div>
+                <div class="col-2"><select class="form-select" aria-label="Default select example" v-model="filter"
+                        @change="filterResults">
+                        <option selected>---</option>
+                        <option value="1">Order by Vote</option>
+                        <option value="2">Order by Reviews</option>
+                    </select></div>
             </div>
+
+
             <div class="d-flex justify-content-center p-2 gap-3">
                 <div class="container" style="max-width: 960px;">
                     <div class="row ">
@@ -71,7 +106,7 @@ export default {
                 </div>
             </div>
             <div class="row" v-if="doctors.length > 0">
-                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors">
+                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in filterResults">
                     <CardDoctor :doc="doctor" />
                 </div>
             </div>
@@ -94,4 +129,5 @@ export default {
 
 .cursor-pointer {
     cursor: pointer;
-}</style>
+}
+</style>
