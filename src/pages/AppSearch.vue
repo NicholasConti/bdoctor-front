@@ -98,8 +98,8 @@ export default {
                     <div class="row ">
                         <div class="col">
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
-                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
-                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs"
+                                @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
                         </div>
                     </div>
                 </div>
