@@ -34,6 +34,7 @@ export default {
         <div class="container">
             <h2 class="text-center text-white py-4">"Find Your Perfect Doctor: Search and Connect with them"</h2>
             <div class="input-group mb-3 w-50 m-auto">
+                <!--searchbar per cercare dottore con nome e cognome  -->
                 <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
                     @keyup.enter="gotoSearch()">
                 <span class="input-group-text cursor-pointer" id="basic-addon1" @click="gotoSearch()">Search</span>

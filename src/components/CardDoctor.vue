@@ -9,6 +9,7 @@ export default {
 </script>
 
 <template>
+<!--  componente card per visualizzazione dati dottore    -->
     <div class="py-2 px-2">
         <div class="card col-sm-12 col-md-12 background_color_img" style="max-width: 560px; height: 400px;">
             <img :src="doc.image" class="card-img-top img_size px-1 py-1" :alt="doc.user.name">

@@ -16,6 +16,7 @@ export default {
         }
     },
     methods: {
+        //metodo per ricevere le specializzazioni con API
         getSpec() {
             axios.get('http://127.0.0.1:8000/api/specializations').then((response) => {
                 this.specs = response.data.results;
@@ -26,11 +27,13 @@ export default {
                 this.doctors = response.data.results;
             })
         },
+        //metodo per ricevere i dottori con API 
         getDoctors() {
             axios.get('http://127.0.0.1:8000/api/doctors').then((response) => {
                 this.doctors = response.data.results;
             })
         },
+        //metodo per filtrare dottori per nome e cognome 
         searchByText() {
             if (this.search.trim() != '') {
                 axios.get('http://127.0.0.1:8000/api/doctors/search/' + this.search).then((response) => {
@@ -51,6 +54,7 @@ export default {
         }
     },
     computed: {
+        //computed property per filtrare i dottori per voto medio
         filterResults() {
             if (this.filter == 1) {
                 const copyDoctors = [...this.doctors];
@@ -93,6 +97,7 @@ export default {
                             @click="searchByText()">Search</span>
                     </div>
                 </div>
+                <!-- select per filtro media voti e recensioni -->
                 <div class="col-2">
                     <select class="form-select" aria-label="Default select example" v-model="filter" @change="filterResults">
                         <option selected>---</option>
@@ -102,7 +107,7 @@ export default {
                 </div>
             </div>
 
-
+            <!-- sezione per filtrare i dottori per specializzazioni -->
             <div class="d-flex justify-content-center p-2 gap-3">
                 <div class="container" style="max-width: 960px;">
                     <div class="row ">
@@ -114,6 +119,7 @@ export default {
                     </div>
                 </div>
             </div>
+            <!-- mostra i dottori trovati -->
             <div class="row" v-if="doctors.length > 0">
                 <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in filterResults">
                     <CardDoctor :doc="doctor" />
