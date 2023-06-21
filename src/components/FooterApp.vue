@@ -10,7 +10,7 @@ export default {
         <div class="row text-center">
             <!-- info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-md-block d-none  py-5">
-                <h5>About Us</h5>
+                <h5 class="text-primary">About Us</h5>
                 <ul>
                     <li><a href="https://www.topdoctors.it/en/chi-siamo/">About BDoctors</a></li>
                     <li><a href="https://www.topdoctors.it/en/occupiamo-della-tua-salute/">Why choose us</a></li>
@@ -21,7 +21,7 @@ export default {
             </div>
             <!-- info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-lg-block d-none py-5">
-                <h5>Collaborate with us</h5>
+                <h5 class="text-primary">Collaborate with us</h5>
                 <ul>
                     <li><a href="https://www.topdoctors.it/en/collaborazione-con-medici/">Doctors</a></li>
                     <li><a href="https://www.topdoctors.it/en/raccomanda-medici/">Nominate doctors</a></li>
@@ -32,7 +32,7 @@ export default {
             </div>
             <!-- info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-lg-block d-none  py-5">
-                <h5>Customer Care</h5>
+                <h5 class="text-primary">Customer Care</h5>
                 <ul>
                     <li><a href="https://www.topdoctors.it/en/suggerimenti-e-domande/">Contact us</a></li>
                     <li><a href="https://www.topdoctors.it/en/garanzia-di-qualita/">Quality commitment</a></li>

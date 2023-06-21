@@ -28,24 +28,21 @@ export default {
         <div class="container">
             <!-- doctor -->
             <div class="d-flex flex-wrap text-white border_bottom">
-                <div class="px-4 py-4">
-                    <img :src="doctor.image" class="card-img-top img_doctor" alt="di" style="width: 200px;">
+                <div class="pt-4 pe-3">
+                    <img :src="doctor.image" class="card-img-top img_doctor" alt="doc_img">
                 </div>
                 <!-- Info-doctor -->
-                <div class="px-4 py-4">
-                    <h4>sponsor</h4>
-                    <h6>Nome: {{ doctor.user.name }}</h6>
-                    <h6>Cognome: {{ doctor.user.surname }}</h6>
-                    <h6>Indirizzo: {{ doctor.user.address }}</h6>
-                    <h6>Telefono: {{ doctor.telephone }}</h6>
-                    <h6>spec: 
-                        <span v-for="item in doctor.specializations">
-                            {{ item.name }},
-                        </span>
-                    </h6>
+                <div class="pe-5 me-5 mt-5 d-flex flex-column">
+                    <span class="mb-3">Sponsorships:</span>
+                    <span>Name: {{ doctor.user.name }} </span>
+                    <span>Surname: {{ doctor.user.surname }} </span>
+                    <span>Address: {{ doctor.user.address }} </span>
+                    <span>Phone: {{ doctor.telephone }} </span>
+                    <span>spec: <span v-for="item in doctor.specializations">{{ item.name }}, </span></span>
                 </div>
-                <div class="px-4 py-4 col-md box_description">
-                    <h4>{{ doctor.description }}</h4>
+                <div class="px-5 mx-5 pt-2 col-md box_description">
+                    <h4 class="text-center">About me</h4>
+                    <p>{{ doctor.description }}</p>
                 </div>
                 <!-- Info-doctor -->
             </div>
@@ -159,7 +156,8 @@ export default {
 
 .img_doctor {
     border-radius: 10px;
-    height: 15.625rem;
+    height: 200px;
+    width: 200px;
 }
 
 .rating {
