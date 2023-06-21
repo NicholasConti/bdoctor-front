@@ -32,13 +32,14 @@ export default {
                     <img :src="doctor.image" class="card-img-top img_doctor" alt="doc_img">
                 </div>
                 <!-- Info-doctor -->
-                <div class="pe-5 me-5 mt-5 d-flex flex-column">
-                    <span class="mb-3">Sponsorships:</span>
-                    <span>Name: {{ doctor.user.name }} </span>
-                    <span>Surname: {{ doctor.user.surname }} </span>
-                    <span>Address: {{ doctor.user.address }} </span>
-                    <span>Phone: {{ doctor.telephone }} </span>
-                    <span>spec: <span v-for="item in doctor.specializations">{{ item.name }}, </span></span>
+                <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
+                    <span class="badge text-bg-success">Premium</span>
+                    <h3 class="mb-2">Dr. {{ doctor.user.name  }} {{ doctor.user.surname }} </h3>
+                    <span> </span>
+                    <span><font-awesome-icon icon="fa-solid fa-envelope" class="me-1"/> {{ doctor.user.email }}</span>
+                    <span><font-awesome-icon icon="fa-solid fa-location-dot" class="me-1"/> {{ doctor.user.address }} </span>
+                    <span><font-awesome-icon icon="fa-solid fa-phone-flip" class="me-1"/> {{ doctor.telephone }} </span>
+                    <span><font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-1"/> <span v-for="item in doctor.specializations">{{ item.name }}, </span></span>
                 </div>
                 <div class="px-5 mx-5 pt-2 col-md box_description">
                     <h4 class="text-center">About me</h4>
