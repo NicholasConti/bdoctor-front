@@ -12,7 +12,10 @@ export default {
                 name: null,
                 surname: null,
                 email: null
-            }
+            },
+            errors: null,
+            isError: false,
+            isMessage: false
         };
     },
     methods: {
@@ -29,10 +32,17 @@ export default {
                 text_message: this.dataMessage.text_message,
                 doctor_id: this.$route.params.id
             }
-            // console.log(data);
+            //console.log(data);
             axios.post("http://127.0.0.1:8000/api/doctors/message", data).then((response) => {
-                console.log(response);
-            })
+                this.isMessage = true;
+                this.isError = false;
+                this.dataMessage={};
+            }).catch((error) => {
+                this.isError = true;
+                this.isMessage = false;
+                this.errors = error.response.data.errors;
+            });
+
         }
     },
     created() {
@@ -87,6 +97,18 @@ export default {
                 <div class="container" v-if="selectedForm === 'message'">
                     <div class="text-white py-2">
                         <h2 class="py-3">Contact Doctor </h2>
+                        <!-- MESSAGE ERRORS -->
+                        <div class="alert alert-danger mb-4 mt-4" v-if="isError">
+                            <ul>
+                                <li v-for="error in errors">{{ error[0] }}</li>
+                            </ul>
+                        </div>
+                        <!-- MESSAGE SUCCESS -->
+                        <div class="alert alert-success" role="alert" v-if="isMessage">
+                            Messaggio inviato con successo
+                        </div>
+
+
                         <form @submit.prevent="sendMessage" method="POST">
                             <div class="py-1">
                                 <input class="row_size" type="text" v-model="dataMessage.name" name="nome"
