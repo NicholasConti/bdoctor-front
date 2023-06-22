@@ -104,14 +104,14 @@ export default {
                 </div>
                 <!-- INFO-DOCTOR -->
                 <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
-                    <span class="badge text-bg-success">Premium</span>
+                    <span class="badge text-bg-success w-25">Premium</span>
                     <h3 class="mb-2">Dr. {{ doctor.user.name }} {{ doctor.user.surname }} </h3>
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doctor.user.email }}</li>
-                        <li><font-awesome-icon icon="fa-solid fa-location-dot" /> {{ doctor.user.address }} </li>
-                        <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doctor.telephone }} </li>
+                        <li><font-awesome-icon icon="fa-solid fa-envelope" class="me-2"/> {{ doctor.user.email }}</li>
+                        <li><font-awesome-icon icon="fa-solid fa-location-dot" class="me-2"/> {{ doctor.user.address }} </li>
+                        <li><font-awesome-icon icon="fa-solid fa-phone-flip" class="me-2"/> {{ doctor.telephone }} </li>
                         <li>
-                            <font-awesome-icon icon="fa-solid fa-suitcase-medical" /> 
+                            <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3"/> 
                             <span v-for="item in doctor.specializations"> {{ item.name }}, </span>
                         </li>
                     </ul>
