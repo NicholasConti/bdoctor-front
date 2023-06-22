@@ -6,13 +6,32 @@ export default {
     data() {
         return {
             selectedForm: 'message',
-            doctor: null
+            doctor: null,
+            dataMessage: {
+                text_message: null,
+                name: null,
+                surname: null,
+                email: null
+            }
         };
     },
     methods: {
         getDoctor() {
             axios.get("http://127.0.0.1:8000/api/doctors/" + this.$route.params.id).then((response) => {
                 this.doctor = response.data.results;
+            })
+        },
+        sendMessage() {
+            const data = {
+                name: this.dataMessage.name,
+                surname: this.dataMessage.surname,
+                email: this.dataMessage.email,
+                text_message: this.dataMessage.text_message,
+                doctor_id: this.$route.params.id
+            }
+            // console.log(data);
+            axios.post("http://127.0.0.1:8000/api/doctors/message", data).then((response) => {
+                console.log(response);
             })
         }
     },
@@ -34,12 +53,13 @@ export default {
                 <!-- INFO-DOCTOR -->
                 <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
                     <span class="badge text-bg-success">Premium</span>
-                    <h3 class="mb-2">Dr. {{ doctor.user.name  }} {{ doctor.user.surname }} </h3>
+                    <h3 class="mb-2">Dr. {{ doctor.user.name }} {{ doctor.user.surname }} </h3>
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><font-awesome-icon icon="fa-solid fa-envelope"/> {{ doctor.user.email }}</li>
-                        <li><font-awesome-icon icon="fa-solid fa-location-dot"/> {{ doctor.user.address }} </li>
-                        <li><font-awesome-icon icon="fa-solid fa-phone-flip"/> {{ doctor.telephone }} </li>
-                        <li><font-awesome-icon icon="fa-solid fa-suitcase-medical"/> <span v-for="item in doctor.specializations"> {{ item.name }}, </span></li>
+                        <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doctor.user.email }}</li>
+                        <li><font-awesome-icon icon="fa-solid fa-location-dot" /> {{ doctor.user.address }} </li>
+                        <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doctor.telephone }} </li>
+                        <li><font-awesome-icon icon="fa-solid fa-suitcase-medical" /> <span
+                                v-for="item in doctor.specializations"> {{ item.name }}, </span></li>
                     </ul>
                 </div>
                 <div class="px-5 mx-5 pt-2 col-md box_description">
@@ -67,19 +87,22 @@ export default {
                 <div class="container" v-if="selectedForm === 'message'">
                     <div class="text-white py-2">
                         <h2 class="py-3">Contact Doctor </h2>
-                        <form action="invia_messaggio.php" method="POST">
+                        <form @submit.prevent="sendMessage" method="POST">
                             <div class="py-1">
-                                <input class="row_size" type="text" name="nome" placeholder="Name" required>
+                                <input class="row_size" type="text" v-model="dataMessage.name" name="nome"
+                                    placeholder="Name" required>
                             </div>
                             <div class="py-1">
-                                <input class="row_size" type="text" name="cognome" placeholder="Surname" required>
+                                <input class="row_size" type="text" v-model="dataMessage.surname" name="cognome"
+                                    placeholder="Surname" required>
                             </div>
                             <div class="py-1">
-                                <input class="row_size" type="email" name="email" placeholder="Email" required>
+                                <input class="row_size" type="email" v-model="dataMessage.email" name="email"
+                                    placeholder="Email" required>
                             </div>
                             <div class="py-1">
-                                <textarea class="row_size" name="messaggio" rows="5" cols="40"
-                                    placeholder="Write something here" required></textarea>
+                                <textarea class="row_size" name="messaggio" v-model="dataMessage.text_message" rows="5"
+                                    cols="40" placeholder="Write something here" required></textarea>
                             </div>
                             <div class="d-flex justify-content-center py-3 px-3">
                                 <input class="btn bg-success" type="submit" value="Send">
@@ -238,7 +261,8 @@ textarea {
     color: #333;
     font-size: 16px;
 }
-.act:focus{
-    background-color: rgba(0, 0, 250, 0.5 );
+
+.act:focus {
+    background-color: rgba(0, 0, 250, 0.5);
 }
 </style>
