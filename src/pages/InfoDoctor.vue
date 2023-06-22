@@ -68,8 +68,10 @@ export default {
                         <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doctor.user.email }}</li>
                         <li><font-awesome-icon icon="fa-solid fa-location-dot" /> {{ doctor.user.address }} </li>
                         <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doctor.telephone }} </li>
-                        <li><font-awesome-icon icon="fa-solid fa-suitcase-medical" /> <span
-                                v-for="item in doctor.specializations"> {{ item.name }}, </span></li>
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-suitcase-medical" /> 
+                            <span v-for="item in doctor.specializations"> {{ item.name }}, </span>
+                        </li>
                     </ul>
                 </div>
                 <div class="px-5 mx-5 pt-2 col-md box_description">
