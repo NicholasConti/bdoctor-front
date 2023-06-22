@@ -13,9 +13,17 @@ export default {
                 surname: null,
                 email: null
             },
+            dataReview: {
+                text_review: null,
+                name: null,
+                surname: null,
+                email: null,
+                vote: null
+            },
             errors: null,
             isError: false,
-            isMessage: false
+            isMessage: false,
+            isReview: false
         };
     },
     methods: {
@@ -36,10 +44,44 @@ export default {
             axios.post("http://127.0.0.1:8000/api/doctors/message", data).then((response) => {
                 this.isMessage = true;
                 this.isError = false;
-                this.dataMessage={};
+                this.dataMessage = {
+                    text_message: null,
+                    name: null,
+                    surname: null,
+                    email: null
+                };
             }).catch((error) => {
                 this.isError = true;
                 this.isMessage = false;
+                this.errors = error.response.data.errors;
+            });
+
+        },
+        sendReview() {
+            const data = {
+                name: this.dataReview.name,
+                surname: this.dataReview.surname,
+                email: this.dataReview.email,
+                text_review: this.dataReview.text_review,
+                doctor_id: this.$route.params.id,
+                vote: this.dataReview.vote
+            }
+            //console.log(data);
+            axios.post("http://127.0.0.1:8000/api/doctors/review", data).then((response) => {
+                this.isReview = true;
+                this.isError = false;
+                const star=document.getElementById('star'+this.dataReview.vote);
+                star.checked=false;
+                this.dataReview = {
+                    text_review: null,
+                    name: null,
+                    surname: null,
+                    email: null,
+                    vote: null
+                };
+            }).catch((error) => {
+                this.isError = true;
+                this.isReview = false;
                 this.errors = error.response.data.errors;
             });
 
@@ -140,32 +182,45 @@ export default {
                 <div class="container" v-else>
                     <div class="text-white py-2">
                         <h2 class="py-3">Review Doctor</h2>
-                        <form action="invia_recensione.php" method="POST">
+                        <!-- REVIEW ERRORS -->
+                        <div class="alert alert-danger mb-4 mt-4" v-if="isError">
+                            <ul>
+                                <li v-for="error in errors">{{ error[0] }}</li>
+                            </ul>
+                        </div>
+                        <!-- REVIEW SUCCESS -->
+                        <div class="alert alert-success" role="alert" v-if="isReview">
+                            Recensione inviata con successo
+                        </div>
+                        <form @submit.prevent="sendReview" method="POST">
                             <div class="py-1">
-                                <input class="row_size" type="text" name="nome" placeholder="Name" required>
+                                <input class="row_size" type="text" v-model="dataReview.name" name="nome" placeholder="Name"
+                                    required>
                             </div>
                             <div class="py-1">
-                                <input class="row_size" type="text" name="cognome" placeholder="Surname" required>
+                                <input class="row_size" type="text" v-model="dataReview.surname" name="cognome"
+                                    placeholder="Surname" required>
                             </div>
                             <div class="py-1">
-                                <input class="row_size" type="email" name="email" placeholder="Email" required>
+                                <input class="row_size" type="email" v-model="dataReview.email" name="email"
+                                    placeholder="Email" required>
                             </div>
                             <div class="py-1">
-                                <textarea class="row_size" name="recensione" rows="5" cols="40"
-                                    placeholder="Write something here" required></textarea>
+                                <textarea class="row_size" v-model="dataReview.text_review" name="recensione" rows="5"
+                                    cols="40" placeholder="Write something here" required></textarea>
                             </div>
                             <div class="d-flex justify-content-center align-items-center py-2 px-3">
                                 <div class="py-3">
                                     <div class="rating">
-                                        <input type="radio" name="rating" id="star5" value="5">
+                                        <input type="radio" name="rating" id="star5" value="5" @click="dataReview.vote = 5">
                                         <label for="star5"></label>
-                                        <input type="radio" name="rating" id="star4" value="4">
+                                        <input type="radio" name="rating" id="star4" value="4" @click="dataReview.vote = 4">
                                         <label for="star4"></label>
-                                        <input type="radio" name="rating" id="star3" value="3">
+                                        <input type="radio" name="rating" id="star3" value="3" @click="dataReview.vote = 3">
                                         <label for="star3"></label>
-                                        <input type="radio" name="rating" id="star2" value="2">
+                                        <input type="radio" name="rating" id="star2" value="2" @click="dataReview.vote = 2">
                                         <label for="star2"></label>
-                                        <input type="radio" name="rating" id="star1" value="1">
+                                        <input type="radio" name="rating" id="star1" value="1" @click="dataReview.vote = 1">
                                         <label for="star1"></label>
                                     </div>
                                     <div class="py-3">
