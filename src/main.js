@@ -19,8 +19,9 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faPhoneFlip } from '@fortawesome/free-solid-svg-icons';
 import { faSuitcaseMedical } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { router } from './router';
 
-library.add(faDownload, faBars, faUserDoctor, faTwitter, faInstagram, faFacebookF, faYoutube, faLinkedinIn, faEnvelope, faLocationDot, faPhoneFlip, faSuitcaseMedical);
+library.add(faDownload, faBars, faUserDoctor, faTwitter, faInstagram, faFacebookF, faYoutube, faLinkedinIn, faEnvelope, faLocationDot, faPhoneFlip, faSuitcaseMedical, faStar);
 
 createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
