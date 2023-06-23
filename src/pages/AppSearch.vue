@@ -12,7 +12,8 @@ export default {
             filter: null,
             doctors: [],
             specs: [],
-            search: ''
+            search: '',
+            mediaVote: 0
         }
     },
     methods: {
@@ -41,9 +42,15 @@ export default {
                 });
             }
             else this.getDoctors();
+        },
+        setMediaVote() {
+            if (this.mediaVote == 0) this.getDoctors();
+            else {
+                axios.get('http://127.0.0.1:8000/api/doctors/vote/' + this.mediaVote).then((response) => {
+                    this.doctors = response.data.results;
+                })
+            }
         }
-
-
     },
     created() {
         this.getSpec();
@@ -87,11 +94,11 @@ export default {
 
 <template>
     <div class="background_color py-5">
-        
+
         <div class="container">
             <h1 class="py-4 text_color">Search Results</h1>
             <div class="row">
-                <div class="col-10">
+                <div class="col-8">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
                             @keyup.enter="searchByText()" placeholder="Search your doctor">
@@ -99,10 +106,24 @@ export default {
                             @click="searchByText()">Search</span>
                     </div>
                 </div>
-                <!-- select per filtro media voti e recensioni -->
-                
+                <!-- select per ricerca media voti -->
                 <div class="col-2">
-                    <select class="form-select" aria-label="Default select example" v-model="filter" @change="filterResults">
+                    <select class="form-select" aria-label="Default select example" v-model="mediaVote"
+                        @change="setMediaVote">
+                        <option selected value="0">---</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <!-- select per filtro media voti e recensioni -->
+
+                <div class="col-2">
+                    <select class="form-select" aria-label="Default select example" v-model="filter"
+                        @change="filterResults">
                         <option selected>---</option>
                         <option value="1">Order by Vote</option>
                         <option value="2">Order by Reviews</option>
@@ -148,7 +169,7 @@ export default {
 .cursor-pointer {
     cursor: pointer;
 }
-.text_color{
-    color:  white;
-}
-</style>
+
+.text_color {
+    color: white;
+}</style>
