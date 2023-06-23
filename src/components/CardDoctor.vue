@@ -9,25 +9,25 @@ export default {
 </script>
 
 <template>
-<!--  componente card per visualizzazione dati dottore    -->
-    <div class="py-2 px-2">
-        <div class="card col-sm-12 col-md-12 background_color_img" style="max-width: 560px; height: 400px;">
-            <img :src="doc.image" class="card-img-top img_size px-1 py-1" :alt="doc.user.name">
-            <div class="card-body text-white">
-                <h6 class="card-title mb-3">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
-                <ul class="list-unstyled d-flex flex-column gap-2">
-                    <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doc.user.email }}</li>
-                    <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doc.telephone }} </li>
-                    <li><font-awesome-icon icon="fa-solid fa-star" />{{ Math.round(doc.votes_avg_vote * 100) / 100  }}</li>
-                </ul>
-                    <router-link  class="text-white" :to="{ name: 'InfoDoctor', params:{id:doc.id} }"><h5 id="hover-color" class="text-center">Visit profile</h5></router-link>
-            </div>
+    <!--  componente card per visualizzazione dati dottore    -->
+
+    <div class="card background_color_img" style="height: 100%;">
+        <img :src="doc.image" class="card-img-top img_size px-1 py-1" :alt="doc.user.name">
+        <div class="card-body text-white">
+            <h6 class="card-title mb-3">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+                <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doc.user.email }}</li>
+                <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doc.telephone }} </li>
+                <li><font-awesome-icon icon="fa-solid fa-star" />{{ Math.round(doc.votes_avg_vote * 100) / 100 }}</li>
+            </ul>
+            <router-link class="text-white" :to="{ name: 'InfoDoctor', params: { id: doc.id } }">
+                <h5 id="hover-color" class="text-center">Visit profile</h5>
+            </router-link>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-
 .background_color_img {
     background-color: #2b97ac;
 }
@@ -36,13 +36,13 @@ export default {
     transform: scale(1.1);
     transition: 0.5s ease;
 }
+
 .img_size {
     height: 15.625rem;
     border-radius: 10px;
 }
 
 #hover-color:hover {
-  color: #005a97;
+    color: #005a97;
 }
-
 </style>

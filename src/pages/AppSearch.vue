@@ -145,8 +145,8 @@ export default {
                 </div>
             </div>
             <!-- mostra i dottori trovati -->
-            <div class="row" v-if="doctors.length > 0">
-                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in filterResults">
+            <div class="row gy-2" v-if="doctors.length > 0">
+                <div class="col-lg-3 col-sm-12 col-md-6" v-for="doctor in filterResults">
                     <CardDoctor :doc="doctor" />
                 </div>
             </div>
@@ -173,4 +173,5 @@ export default {
 
 .text_color {
     color: white;
-}</style>
+}
+</style>
