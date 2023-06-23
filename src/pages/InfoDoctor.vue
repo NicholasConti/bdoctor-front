@@ -129,112 +129,115 @@ export default {
             <div class="m-4 cv">
                 <object :data="doctor.cv" type="application/pdf" width="100%" height="500px"></object>
             </div>
-            <div class="d-flex justify-content-center border-top pt-5 mt-3">
-                <div class="px-4">
-                    <button @click="selectedForm = 'message'" class="btn act">Book your visit</button>
+            <div class="d-flex flex-column border-top pt-5 mt-3">
+                <div class="d-flex justify-content-center">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item me-3" role="presentation">
+                            <button @click="selectedForm = 'message'" class="nav-link active text-white border" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Book your visit</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button @click="selectedForm = 'review'" class="nav-link text-white border" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Leave a review</button>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <button @click="selectedForm = 'review'" class="btn act">Leave a review </button>
-                </div>
-            </div>
+                
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="container tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <!-- MESSAGE -->
+                        <div class="text-white py-2">
+                            <h2 class="py-3">Contact Doctor</h2>
+                            <!-- MESSAGE ERRORS -->
+                            <div class="alert alert-danger mb-4 mt-4" v-if="isError">
+                                <ul>
+                                    <li v-for="error in errors">{{ error[0] }}</li>
+                                </ul>
+                            </div>
+                            <!-- MESSAGE SUCCESS -->
+                            <div class="alert alert-success" role="alert" v-if="isMessage">
+                                Messaggio inviato con successo
+                            </div>
 
-            <!-- DOCTOR -->
-            <div class="container">
-                <!-- MESSAGE -->
-                <div class="container" v-if="selectedForm === 'message'">
-                    <div class="text-white py-2">
-                        <h2 class="py-3">Contact Doctor </h2>
-                        <!-- MESSAGE ERRORS -->
-                        <div class="alert alert-danger mb-4 mt-4" v-if="isError">
-                            <ul>
-                                <li v-for="error in errors">{{ error[0] }}</li>
-                            </ul>
+                            <form @submit.prevent="sendMessage" method="POST">
+                                
+                                <div class="py-1">
+                                    <input class="row_size" type="text" v-model="dataMessage.name" name="nome"
+                                        placeholder="Name" required>
+                                </div>
+                                <div class="py-1">
+                                    <input class="row_size" type="text" v-model="dataMessage.surname" name="cognome"
+                                        placeholder="Surname" required>
+                                </div>
+                                <div class="py-1">
+                                    <input class="row_size" type="email" v-model="dataMessage.email" name="email"
+                                        placeholder="Email" required>
+                                </div>
+                                <div class="py-1">
+                                    <textarea class="row_size" name="messaggio" v-model="dataMessage.text_message" rows="5"
+                                        cols="40" placeholder="Write something here" required></textarea>
+                                </div>
+                                <div class="d-flex justify-content-center py-3 px-3">
+                                    <input class="btn bg-success" type="submit" value="Send">
+                                </div>
+                                    
+                            </form>
+                        <!-- /MESSAGE -->
                         </div>
-                        <!-- MESSAGE SUCCESS -->
-                        <div class="alert alert-success" role="alert" v-if="isMessage">
-                            Messaggio inviato con successo
-                        </div>
-
-
-                        <form @submit.prevent="sendMessage" method="POST">
-                            <div class="py-1">
-                                <input class="row_size" type="text" v-model="dataMessage.name" name="nome"
-                                    placeholder="Name" required>
+                    </div>  
+                    <!-- REVIEW -->
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="text-white py-2">
+                            <h2 class="py-3">Review Doctor</h2>
+                            <!-- REVIEW ERRORS -->
+                            <div class="alert alert-danger mb-4 mt-4" v-if="isError">
+                                <ul>
+                                    <li v-for="error in errors">{{ error[0] }}</li>
+                                </ul>
                             </div>
-                            <div class="py-1">
-                                <input class="row_size" type="text" v-model="dataMessage.surname" name="cognome"
-                                    placeholder="Surname" required>
+                            <!-- REVIEW SUCCESS -->
+                            <div class="alert alert-success" role="alert" v-if="isReview">
+                                Recensione inviata con successo
                             </div>
-                            <div class="py-1">
-                                <input class="row_size" type="email" v-model="dataMessage.email" name="email"
-                                    placeholder="Email" required>
-                            </div>
-                            <div class="py-1">
-                                <textarea class="row_size" name="messaggio" v-model="dataMessage.text_message" rows="5"
-                                    cols="40" placeholder="Write something here" required></textarea>
-                            </div>
-                            <div class="d-flex justify-content-center py-3 px-3">
-                                <input class="btn bg-success" type="submit" value="Send">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- /MESSAGE -->
-
-                <!-- REVIEW -->
-                <div class="container" v-else>
-                    <div class="text-white py-2">
-                        <h2 class="py-3">Review Doctor</h2>
-                        <!-- REVIEW ERRORS -->
-                        <div class="alert alert-danger mb-4 mt-4" v-if="isError">
-                            <ul>
-                                <li v-for="error in errors">{{ error[0] }}</li>
-                            </ul>
-                        </div>
-                        <!-- REVIEW SUCCESS -->
-                        <div class="alert alert-success" role="alert" v-if="isReview">
-                            Recensione inviata con successo
-                        </div>
-                        <form @submit.prevent="sendReview" method="POST">
-                            <div class="py-1">
-                                <input class="row_size" type="text" v-model="dataReview.name" name="nome" placeholder="Name"
-                                    required>
-                            </div>
-                            <div class="py-1">
-                                <input class="row_size" type="text" v-model="dataReview.surname" name="cognome"
-                                    placeholder="Surname" required>
-                            </div>
-                            <div class="py-1">
-                                <input class="row_size" type="email" v-model="dataReview.email" name="email"
-                                    placeholder="Email" required>
-                            </div>
-                            <div class="py-1">
-                                <textarea class="row_size" v-model="dataReview.text_review" name="recensione" rows="5"
-                                    cols="40" placeholder="Write something here" required></textarea>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center py-2 px-3">
-                                <div class="py-3">
-                                    <div class="rating">
-                                        <input type="radio" name="rating" id="star5" value="5" @click="dataReview.vote = 5">
-                                        <label for="star5"></label>
-                                        <input type="radio" name="rating" id="star4" value="4" @click="dataReview.vote = 4">
-                                        <label for="star4"></label>
-                                        <input type="radio" name="rating" id="star3" value="3" @click="dataReview.vote = 3">
-                                        <label for="star3"></label>
-                                        <input type="radio" name="rating" id="star2" value="2" @click="dataReview.vote = 2">
-                                        <label for="star2"></label>
-                                        <input type="radio" name="rating" id="star1" value="1" @click="dataReview.vote = 1">
-                                        <label for="star1"></label>
-                                    </div>
+                            <form @submit.prevent="sendReview" method="POST">
+                                <div class="py-1">
+                                    <input class="row_size" type="text" v-model="dataReview.name" name="nome" placeholder="Name"
+                                        required>
+                                </div>
+                                <div class="py-1">
+                                    <input class="row_size" type="text" v-model="dataReview.surname" name="cognome"
+                                        placeholder="Surname" required>
+                                </div>
+                                <div class="py-1">
+                                    <input class="row_size" type="email" v-model="dataReview.email" name="email"
+                                        placeholder="Email" required>
+                                </div>
+                                <div class="py-1">
+                                    <textarea class="row_size" v-model="dataReview.text_review" name="recensione" rows="5"
+                                        cols="40" placeholder="Write something here" required></textarea>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center py-2 px-3">
                                     <div class="py-3">
-                                        <input class="btn bg-success" type="submit" value="Send Review">
+                                        <div class="rating">
+                                            <input type="radio" name="rating" id="star5" value="5" @click="dataReview.vote = 5">
+                                            <label for="star5"></label>
+                                            <input type="radio" name="rating" id="star4" value="4" @click="dataReview.vote = 4">
+                                            <label for="star4"></label>
+                                            <input type="radio" name="rating" id="star3" value="3" @click="dataReview.vote = 3">
+                                            <label for="star3"></label>
+                                            <input type="radio" name="rating" id="star2" value="2" @click="dataReview.vote = 2">
+                                            <label for="star2"></label>
+                                            <input type="radio" name="rating" id="star1" value="1" @click="dataReview.vote = 1">
+                                            <label for="star1"></label>
+                                        </div>
+                                        <div class="py-3">
+                                            <input class="btn bg-success" type="submit" value="Send Review">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
+                    <!-- /REVIEW -->
                 </div>
-                <!-- /REVIEW -->
             </div>
             <!-- LINKHOME -->
             <div class="text-center fs-3 py-4">
@@ -342,9 +345,5 @@ input[type="email"],
 textarea {
     color: #333;
     font-size: 16px;
-}
-
-.act:focus {
-    background-color: rgba(0, 0, 250, 0.5);
 }
 </style>
