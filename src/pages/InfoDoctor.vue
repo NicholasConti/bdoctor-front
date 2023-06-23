@@ -126,8 +126,10 @@ export default {
                 <!-- /INFO-DOCTOR -->
             </div>
 
-            <div class="m-4 cv">
-                <object :data="doctor.cv" type="application/pdf" width="100%" height="500px"></object>
+            <div class="m-4 cv d-flex justify-content-center">
+                <!-- <object :data="doctor.cv" type="application/pdf" width="100%" height="500px"></object> -->
+                <embed :src="doctor.cv" width="60%" height="800px" type="application/pdf">
+
             </div>
 
             <div class="d-flex flex-column border-top pt-5 mt-3">
@@ -318,12 +320,6 @@ export default {
     transform: scale(1.1);
     transition: 0.5s ease;
 }
-
-.cv {
-    background-color: rgb(237, 227, 227);
-    border-radius: 5px;
-}
-
 
 .row_size {
     border: none;
