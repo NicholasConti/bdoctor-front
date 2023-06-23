@@ -15,7 +15,7 @@ export default {
     },
     methods: {
         getDoctors() {
-            axios.get('http://127.0.0.1:8000/api/doctors').then((response) => {
+            axios.get('http://127.0.0.1:8000/api/doctors/sponsor').then((response) => {
                 this.doctors = response.data.results;
             })
         },
