@@ -19,7 +19,7 @@ const router = createRouter({
             component: InfoDoctor
         },
         {
-            path: '/search/:text?',
+            path: '/search/:text?/:spec?',
             name: 'search',
             component: AppSearch
         },

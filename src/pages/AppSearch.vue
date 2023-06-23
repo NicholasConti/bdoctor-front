@@ -59,6 +59,7 @@ export default {
             this.search = this.$route.params.text;
             this.searchByText();
         }
+        if (this.$route.params.spec) this.getDoctorBySpec(this.$route.params.spec);
     },
     computed: {
         //computed property per filtrare i dottori per voto medio

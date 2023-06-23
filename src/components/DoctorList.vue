@@ -10,7 +10,8 @@ export default {
     data() {
         return {
             doctors: [],
-            search: ''
+            search: '',
+            specs: [],
         }
     },
     methods: {
@@ -21,10 +22,19 @@ export default {
         },
         gotoSearch() {
             this.$router.push({ name: 'search', params: { text: this.search.trim() } });
+        },
+        getSpec() {
+            axios.get('http://127.0.0.1:8000/api/specializations').then((response) => {
+                this.specs = response.data.results;
+            })
+        },
+        gotoSpec(id) {
+            this.$router.push({ name: 'search', params: { spec:id } });
         }
     },
     created() {
         this.getDoctors();
+        this.getSpec();
     }
 }
 </script>
@@ -35,12 +45,21 @@ export default {
             <h2 class="text-center text-white py-4">"Find Your Perfect Doctor: Search and Connect with them"</h2>
             <div class="input-group mb-3 w-50 m-auto">
                 <!--searchbar per cercare dottore con nome e cognome  -->
-                <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
+                <input type="text" class="form-control" placeholder="Search your favourite doctor" aria-describedby="basic-addon1" v-model="search"
                     @keyup.enter="gotoSearch()">
-                <span class="input-group-text cursor-pointer" id="basic-addon1" @click="gotoSearch()">Search</span>
+                <span class="input-group-text cursor-pointer fw-bold" id="basic-addon1" @click="gotoSearch()">Advanced search</span>
+            </div>
+            <div class="d-flex justify-content-center p-2 gap-3 py-4">
+                <div class="container" style="max-width: 960px;">
+                    <div class="row ">
+                        <div class="col">
+                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" @click="gotoSpec(spec.id)">{{ spec.name }}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row mt-4" v-if="doctors.length > 0">
-                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors ">
+                <div class="col-lg-3 col-sm-6 col-md-4" v-for="doctor in doctors">
                     <CardDoctor :doc="doctor" />
                 </div>
             </div>
