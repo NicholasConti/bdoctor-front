@@ -89,7 +89,7 @@ export default {
     <div class="background_color py-5">
         
         <div class="container">
-            <h1 class="py-4 text_color">Advanced search page</h1>
+            <h1 class="py-4 text_color">Search Results</h1>
             <div class="row">
                 <div class="col-10">
                     <div class="input-group mb-3">
