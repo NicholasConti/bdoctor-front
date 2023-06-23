@@ -84,7 +84,7 @@ export default {
             </div>
             <div class="d-flex justify-content-center border-top pt-5 mt-3">
                 <div class="px-4">
-                    <button @click="selectedForm = 'message'" class="btn act">Book your visit</button>
+                    <button @click="selectedForm = 'message'" class="btn act">Contact Doctor</button>
                 </div>
                 <div>
                     <button @click="selectedForm = 'review'" class="btn act">Leave a review </button>
