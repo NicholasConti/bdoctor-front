@@ -129,6 +129,7 @@ export default {
             <div class="m-4 cv">
                 <object :data="doctor.cv" type="application/pdf" width="100%" height="500px"></object>
             </div>
+
             <div class="d-flex flex-column border-top pt-5 mt-3">
                 <div class="d-flex justify-content-center">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
