@@ -87,17 +87,20 @@ export default {
 
 <template>
     <div class="background_color py-5">
+        
         <div class="container">
+            <h1 class="py-4 text_color">Advanced search page</h1>
             <div class="row">
                 <div class="col-10">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
-                            @keyup.enter="searchByText()">
+                            @keyup.enter="searchByText()" placeholder="Search your doctor">
                         <span class="input-group-text cursor-pointer" id="basic-addon1"
                             @click="searchByText()">Search</span>
                     </div>
                 </div>
                 <!-- select per filtro media voti e recensioni -->
+                
                 <div class="col-2">
                     <select class="form-select" aria-label="Default select example" v-model="filter" @change="filterResults">
                         <option selected>---</option>
@@ -108,7 +111,7 @@ export default {
             </div>
 
             <!-- sezione per filtrare i dottori per specializzazioni -->
-            <div class="d-flex justify-content-center p-2 gap-3">
+            <div class="d-flex justify-content-center p-2 gap-3 py-4">
                 <div class="container" style="max-width: 960px;">
                     <div class="row ">
                         <div class="col">
@@ -144,5 +147,8 @@ export default {
 
 .cursor-pointer {
     cursor: pointer;
+}
+.text_color{
+    color:  white;
 }
 </style>
