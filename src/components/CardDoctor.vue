@@ -14,9 +14,12 @@ export default {
         <div class="card col-sm-12 col-md-12 background_color_img" style="max-width: 560px; height: 400px;">
             <img :src="doc.image" class="card-img-top img_size px-1 py-1" :alt="doc.user.name">
             <div class="card-body text-white">
-                <h6 class="card-title">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
-                <p class="card-text">{{ doc.description }}</p>
-                    <router-link  class="text-white" :to="{ name: 'InfoDoctor', params:{id:doc.id} }"><h3 id="hover-color">Seleziona</h3></router-link>
+                <h6 class="card-title mb-3">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                    <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doc.user.email }}</li>
+                    <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doc.telephone }} </li>
+                </ul>
+                    <router-link  class="text-white" :to="{ name: 'InfoDoctor', params:{id:doc.id} }"><h5 id="hover-color" class="text-center">Visit profile</h5></router-link>
             </div>
         </div>
     </div>
