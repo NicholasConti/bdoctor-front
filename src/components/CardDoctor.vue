@@ -4,6 +4,15 @@ export default {
     name: 'CardDoctor',
     props: {
         doc: Object
+    },
+    computed:{
+        getSpec(){
+            let tmp='';
+            this.doc.specializations.forEach(element => {
+                tmp+=element.name+', ';
+            });
+            return tmp.slice(0, tmp.length - 2);
+        }
     }
 }
 </script>
@@ -18,7 +27,7 @@ export default {
             <ul class="list-unstyled d-flex flex-column gap-2">
                 <li>
                     <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3"/>
-                    <span v-for="item in doc.specializations">{{ item.name }} </span>
+                    <span>{{ getSpec }}</span>
                 </li>
                 <li class="d-flex justify-content-between align-items-center">
                     <div>

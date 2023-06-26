@@ -87,6 +87,15 @@ export default {
 
         }
     },
+    computed:{
+        getSpec(){
+            let tmp='';
+            this.doctor.specializations.forEach(element => {
+                tmp+=element.name+', ';
+            });
+            return tmp.slice(0, tmp.length - 2);
+        }
+    },
     created() {
         this.getDoctor();
     }
@@ -115,7 +124,7 @@ export default {
                         <li><font-awesome-icon icon="fa-solid fa-phone-flip" class="me-2"/> {{ doctor.telephone }} </li>
                         <li>
                             <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3"/> 
-                            <span v-for="item in doctor.specializations"> {{ item.name }} </span>
+                            <span>{{ getSpec }}</span>
                         </li>
                     </ul>
                 </div>
