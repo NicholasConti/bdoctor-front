@@ -60,6 +60,7 @@ export default {
                     </div>
                 </div>
             </div>
+            <h2 class="text-center" >Featured doctors</h2>
             <div class="row gy-2 mt-4" v-if="doctors.length > 0">
                 <div class="col-lg-3 col-sm-12 col-md-6" v-for="doctor in doctors">
                     <CardDoctor :doc="doctor" />
@@ -83,7 +84,6 @@ h1 {
 }
 
 .btn_color {
-    background-color: #005a97;
     border: none;
 }
 
