@@ -16,12 +16,11 @@ export default {
         <div class="card-body text-white">
             <h6 class="card-title mb-3">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
             <ul class="list-unstyled d-flex flex-column gap-2">
-                <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doc.user.email }}</li>
-                <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doc.telephone }} </li>
+                
                 <li class="d-flex justify-content-between align-items-center">
                     <div>
-                        <font-awesome-icon icon="fa-solid fa-star" class="text-warning" v-for="n in Math.ceil(doc.votes_avg_vote / 2)"/>
-                        <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5 - Math.ceil(doc.votes_avg_vote / 2)"/>
+                        <font-awesome-icon icon="fa-solid fa-star" class="text-warning" v-for="n in Math.ceil(doc.votes_avg_vote)"/>
+                        <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5 - Math.ceil(doc.votes_avg_vote)"/>
                     </div>
                     <div><font-awesome-icon icon="fa-solid fa-comment" /> {{ doc.reviews_count }}</div>
                 </li>
