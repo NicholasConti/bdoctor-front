@@ -50,6 +50,12 @@ export default {
                     this.doctors = response.data.results;
                 })
             }
+        },
+        
+
+        checkForNums(input) {
+            let result = /^\d+$/.test(input);
+            return result;
         }
     },
     created() {
@@ -57,7 +63,11 @@ export default {
         if (!this.$route.params.text) this.getDoctors();
         else {
             this.search = this.$route.params.text;
-            this.searchByText();
+            if (!this.checkForNums(this.search)) this.searchByText();
+            else{
+                this.search="";
+                this.getDoctors();
+            } 
         }
         if (this.$route.params.spec) this.getDoctorBySpec(this.$route.params.spec);
     },
@@ -138,8 +148,8 @@ export default {
                     <div class="row ">
                         <div class="col">
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
-                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" 
-                            @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs"
+                                @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
                         </div>
                     </div>
                 </div>
