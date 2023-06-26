@@ -51,7 +51,7 @@ export default {
                 })
             }
         },
-        
+
 
         checkForNums(input) {
             let result = /^\d+$/.test(input);
@@ -64,10 +64,10 @@ export default {
         else {
             this.search = this.$route.params.text;
             if (!this.checkForNums(this.search)) this.searchByText();
-            else{
-                this.search="";
+            else {
+                this.search = "";
                 this.getDoctors();
-            } 
+            }
         }
         if (this.$route.params.spec) this.getDoctorBySpec(this.$route.params.spec);
     },
@@ -110,6 +110,7 @@ export default {
             <h1 class="py-4 text_color">Search Results</h1>
             <div class="row">
                 <div class="col-8">
+                    <h6 class="text_color">Search Name/Surname:</h6>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
                             @keyup.enter="searchByText()" placeholder="Search your doctor">
@@ -119,20 +120,22 @@ export default {
                 </div>
                 <!-- select per ricerca media voti -->
                 <div class="col-2">
+                    <h6 class="text_color">Search By:</h6>
                     <select class="form-select" aria-label="Default select example" v-model="mediaVote"
                         @change="setMediaVote">
                         <option selected value="0">---</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="1">1 &#11088;</option>
+                        <option value="2">2 &#11088;</option>
+                        <option value="3">3 &#11088;</option>
+                        <option value="4">4 &#11088;</option>
+                        <option value="5">5 &#11088;</option>
                     </select>
                 </div>
 
                 <!-- select per filtro media voti e recensioni -->
 
                 <div class="col-2">
+                    <h6 class="text_color">Filters:</h6>
                     <select class="form-select" aria-label="Default select example" v-model="filter"
                         @change="filterResults">
                         <option selected value="0">---</option>
@@ -144,9 +147,9 @@ export default {
 
             <!-- sezione per filtrare i dottori per specializzazioni -->
             <div class="d-flex justify-content-center p-2 gap-3 py-4">
-                <div class="container" style="max-width: 960px;">
+                <div class="container">
                     <div class="row ">
-                        <div class="col">
+                        <div class="col text-center">
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
                             <button class="act btn btn_color btn-primary m-1" v-for="spec in specs"
                                 @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
