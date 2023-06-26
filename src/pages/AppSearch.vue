@@ -125,7 +125,7 @@ export default {
                 <div class="col-2">
                     <select class="form-select" aria-label="Default select example" v-model="filter"
                         @change="filterResults">
-                        <option selected>---</option>
+                        <option selected value="0">---</option>
                         <option value="1">Order by Vote</option>
                         <option value="2">Order by Reviews</option>
                     </select>
@@ -138,8 +138,8 @@ export default {
                     <div class="row ">
                         <div class="col">
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
-                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs"
-                                @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs" 
+                            @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
                         </div>
                     </div>
                 </div>
