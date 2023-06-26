@@ -19,7 +19,10 @@ export default {
                 <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doc.user.email }}</li>
                 <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doc.telephone }} </li>
                 <li class="d-flex justify-content-between align-items-center">
-                    <div><font-awesome-icon icon="fa-solid fa-star" />{{ Math.round(doc.votes_avg_vote * 100) / 100 }}</div>
+                    <div>
+                        <font-awesome-icon icon="fa-solid fa-star" class="text-warning" v-for="n in Math.ceil(doc.votes_avg_vote / 2)"/>
+                        <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5 - Math.ceil(doc.votes_avg_vote / 2)"/>
+                    </div>
                     <div><font-awesome-icon icon="fa-solid fa-comment" />{{ doc.reviews_count }}</div>
                 </li>
             </ul>
