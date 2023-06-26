@@ -82,7 +82,6 @@ h1 {
 }
 
 .btn_color {
-    background-color: #005a97;
     border: none;
 }
 
