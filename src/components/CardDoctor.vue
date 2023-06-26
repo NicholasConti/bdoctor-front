@@ -23,7 +23,7 @@ export default {
                         <font-awesome-icon icon="fa-solid fa-star" class="text-warning" v-for="n in Math.ceil(doc.votes_avg_vote / 2)"/>
                         <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5 - Math.ceil(doc.votes_avg_vote / 2)"/>
                     </div>
-                    <div><font-awesome-icon icon="fa-solid fa-comment" />{{ doc.reviews_count }}</div>
+                    <div><font-awesome-icon icon="fa-solid fa-comment" /> {{ doc.reviews_count }}</div>
                 </li>
             </ul>
             <router-link class="text-white" :to="{ name: 'InfoDoctor', params: { id: doc.id } }">
