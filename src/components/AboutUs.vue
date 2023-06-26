@@ -228,7 +228,7 @@ h4 {
 /* <!-- experiment --> */
 
 .boxes {
-    --size: 16px;
+    --size: 32px;
     --duration: 800ms;
     height: calc(var(--size) * 2);
     width: calc(var(--size) * 3);
