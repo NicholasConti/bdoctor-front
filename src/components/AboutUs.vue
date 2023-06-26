@@ -95,7 +95,7 @@ export default {
                             who are dedicated to helping you live a healthier life.
                         </p>
                         <div class="box_btn">
-                            <button @click="scrollToTop" class="scroll-top-button">Scroll to top</button>
+                            <button @click="scrollToTop" class="scroll-top-button bg-primary">Scroll to top</button>
                         </div>
                     </div>
                 </div>
@@ -214,7 +214,6 @@ h4 {
 .scroll-top-button {
     position: relative;
     padding: 10px 20px;
-    background-color: #005a97;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -229,7 +228,7 @@ h4 {
 /* <!-- experiment --> */
 
 .boxes {
-    --size: 32px;
+    --size: 16px;
     --duration: 800ms;
     height: calc(var(--size) * 2);
     width: calc(var(--size) * 3);
