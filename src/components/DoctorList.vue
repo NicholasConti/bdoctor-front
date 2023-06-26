@@ -46,9 +46,8 @@ export default {
             <div class="input-group mb-3 w-50 m-auto">
                 <!--searchbar per cercare dottore con nome e cognome  -->
                 <input type="text" class="form-control" placeholder="Search your favourite doctor"
-                    aria-describedby="basic-addon1" v-model="search" @keyup.enter="gotoSearch()">
-                <span class="input-group-text cursor-pointer fw-bold" id="basic-addon1" @click="gotoSearch()">Advanced
-                    search</span>
+                    aria-describedby="basic-addon1" v-model="search" @keyup.enter="gotoSearch()" >
+                    <span class="input-group-text cursor-pointer fw-bold" id="basic-addon1" @click="gotoSearch()">Advanced search</span>
             </div>
             <div class="d-flex justify-content-center p-2 gap-3 py-4">
                 <div class="container" style="max-width: 960px;">
