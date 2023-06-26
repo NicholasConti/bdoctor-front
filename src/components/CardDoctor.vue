@@ -18,7 +18,10 @@ export default {
             <ul class="list-unstyled d-flex flex-column gap-2">
                 <li><font-awesome-icon icon="fa-solid fa-envelope" /> {{ doc.user.email }}</li>
                 <li><font-awesome-icon icon="fa-solid fa-phone-flip" /> {{ doc.telephone }} </li>
-                <li><font-awesome-icon icon="fa-solid fa-star" />{{ Math.round(doc.votes_avg_vote * 100) / 100 }}</li>
+                <li class="d-flex justify-content-between align-items-center">
+                    <div><font-awesome-icon icon="fa-solid fa-star" />{{ Math.round(doc.votes_avg_vote * 100) / 100 }}</div>
+                    <div><font-awesome-icon icon="fa-solid fa-comment" />{{ doc.reviews_count }}</div>
+                </li>
             </ul>
             <router-link class="text-white" :to="{ name: 'InfoDoctor', params: { id: doc.id } }">
                 <h5 id="hover-color" class="text-center">Visit profile</h5>
