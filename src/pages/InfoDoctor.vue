@@ -106,7 +106,7 @@ export default {
                 <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
                     <div class="d-flex">
                         <h3 class="mb-2">Dr. {{ doctor.user.name }} {{ doctor.user.surname }} </h3>
-                        <span class="badge text-bg-warning ms-2 mt-2" style="height: 20px;">premium</span>
+                        <span v-if="doctor.sponsorships" class="badge text-bg-warning ms-2 mt-2" style="height: 20px;">Sponsored</span>
                     </div>
                     
                     <ul class="list-unstyled d-flex flex-column gap-2">
