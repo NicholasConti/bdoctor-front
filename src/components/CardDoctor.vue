@@ -17,8 +17,8 @@ export default {
             <h6 class="card-title mb-3">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
             <ul class="list-unstyled d-flex flex-column gap-2">
                 <li>
-                    <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3"/> 
-                    <span v-for="item in doc.specializations"> {{ item.name }} </span>
+                    <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3"/>
+                    <span v-for="item in doc.specializations">{{ item.name }} </span>
                 </li>
                 <li class="d-flex justify-content-between align-items-center">
                     <div>
