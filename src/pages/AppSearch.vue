@@ -131,9 +131,7 @@ export default {
                         <option value="5">5 &#11088;</option>
                     </select>
                 </div>
-
                 <!-- select per filtro media voti e recensioni -->
-
                 <div class="col-2">
                     <h6 class="text_color">Filters:</h6>
                     <select class="form-select" aria-label="Default select example" v-model="filter"

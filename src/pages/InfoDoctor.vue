@@ -251,9 +251,22 @@ export default {
                     <!-- /REVIEW -->
                 </div>
             </div>
+            <div class="m-2 mt-5 py-1 border-top border-bottom pb-5 d-flex flex-column justify-content-center align-items-center">
+                <h3 class="my-4 text-light">Customer reviews</h3>
+                <div class="py-2 m-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
+                    <div class="text-wrap m-1 mx-auto" style="width: 350px">
+                        <h5 class="bg-info rounded text-center text-light">From: {{ review.email }} </h5>
+                    </div>
+                    <div class="py-2 m-1">
+                        <h6>{{ review.text_review }}</h6>
+                    </div>
+                </div>
+                
+                <li v-if="isReview" class="list-group-item">Nessuna recensione!</li>
+            </div>        
             <!-- LINKHOME -->
             <div class="text-center fs-3 py-4">
-                <router-link class="text-primary " :to="{ name: 'home' }">Homepage</router-link>
+                <router-link class="text-primary" :to="{ name: 'home' }">Homepage</router-link>
             </div>
             <!-- /LINKHOME -->
         </div>
