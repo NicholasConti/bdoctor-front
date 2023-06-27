@@ -45,7 +45,7 @@ export default {
                 <div>
                     <img class="logo pb-2" src="/image/logo_fb2.jpg" alt="bdoctors">
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center mt-3">
                     <ul>
                         <li>
                             <h6>BestDoctors italy S.r.l</h6>
