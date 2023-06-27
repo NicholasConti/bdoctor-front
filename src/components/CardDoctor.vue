@@ -24,6 +24,7 @@ export default {
         <img :src="doc.image" class="card-img-top img_size px-1 py-1" :alt="doc.user.name">
         <div class="card-body text-white">
             <h6 class="card-title mb-3">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
+            <span v-if="doc.sponsorships.length" class="badge text-bg-warning mb-2" style="height: 20px;">Sponsored</span>
             <ul class="list-unstyled d-flex flex-column gap-2">
                 <li>
                     <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3"/>
