@@ -275,7 +275,7 @@ export default {
                     </div>
                 </div> -->
                 <div class="row gy-3" id="reviews_box">
-                    <div class="col-12 col-md-6 col-lg-4" v-for="review in doctor.reviews">
+                    <div class="col-12 col-md-6 col-lg-4" v-for="review in doctor.reviews.slice().reverse()">
                         <div class="bg-light p-4 rounded text-break h-100">
                             <div class="m-1 mx-auto" style="max-width: 350px">
                                 <h5 class="bg-info rounded text-center text-light">{{ review.name }} {{ review.surname }}
