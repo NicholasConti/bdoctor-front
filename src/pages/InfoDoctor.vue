@@ -142,7 +142,8 @@ export default {
             </div>
 
             <div class="d-flex flex-column border-top pt-5 mt-3">
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="py-3 text-light">Contact Doctor</h2>
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item me-3" role="presentation">
                             <button @click="selectedForm = 'message'" class="nav-link active text-white border" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Book your visit</button>
@@ -156,8 +157,7 @@ export default {
                 <div class="tab-content" id="pills-tabContent">
                     <div class="container tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <!-- MESSAGE -->
-                        <div class="text-white py-2">
-                            <h2 class="py-3">Contact Doctor</h2>
+                        <div class="py-2">
                             <!-- MESSAGE ERRORS -->
                             <div class="alert alert-danger mb-4 mt-4" v-if="isError">
                                 <ul>
@@ -197,8 +197,7 @@ export default {
                     </div>  
                     <!-- REVIEW -->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="text-white py-2">
-                            <h2 class="py-3">Review Doctor</h2>
+                        <div class="py-2">
                             <!-- REVIEW ERRORS -->
                             <div class="alert alert-danger mb-4 mt-4" v-if="isError">
                                 <ul>
@@ -251,11 +250,12 @@ export default {
                     <!-- /REVIEW -->
                 </div>
             </div>
-            <div class="m-2 mt-5 py-1 border-top border-bottom pb-5 d-flex flex-column justify-content-center align-items-center">
-                <h3 class="my-4 text-light">Customer reviews</h3>
-                <div class="py-2 m-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
+            <div class="m-2 py-1 mt-5 border-top">
+                <h2 class="my-4 text-light">Customer reviews</h2>
+                <div id="reviews_box" class="d-flex flex-column justify-content-center align-items-center">
+                <div class="py-2 mb-4 m-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
                     <div class="text-wrap m-1 mx-auto" style="width: 350px">
-                        <h5 class="bg-info rounded text-center text-light">From: {{ review.email }} </h5>
+                        <h5 class="bg-info rounded text-center text-light">From: {{ review.name }} {{ review.surname }}</h5>
                     </div>
                     <div class="py-2 m-1">
                         <h6>{{ review.text_review }}</h6>
@@ -265,10 +265,12 @@ export default {
                 <li v-if="isReview" class="list-group-item">Nessuna recensione!</li>
             </div>        
             <!-- LINKHOME -->
-            <div class="text-center fs-3 py-4">
+            <div class="text-center mt-5 fs-3 py-4 border-top">
                 <router-link class="text-primary" :to="{ name: 'home' }">Homepage</router-link>
             </div>
             <!-- /LINKHOME -->
+            </div>
+            
         </div>
     </div>
 </template>
@@ -364,5 +366,9 @@ input[type="email"],
 textarea {
     color: #333;
     font-size: 16px;
+}
+#reviews_box{
+    height: 50rem;
+    overflow-y: scroll;
 }
 </style>
