@@ -138,7 +138,6 @@ export default {
             <div class="m-4 cv d-flex justify-content-center">
                 <!-- <object :data="doctor.cv" type="application/pdf" width="100%" height="500px"></object> -->
                 <embed :src="doctor.cv" width="60%" height="800px" type="application/pdf">
-
             </div>
 
             <div class="d-flex flex-column border-top pt-5 mt-3">
