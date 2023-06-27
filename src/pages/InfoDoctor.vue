@@ -251,7 +251,7 @@ export default {
             </div>
             <div class="m-2 py-1 mt-5 border-top">
                 <h2 class="my-4 text-light">Customer reviews</h2>
-                <div id="reviews_box" class="d-flex flex-column justify-content-center align-items-center">
+                <div id="reviews_box" class="d-flex flex-column align-items-center pt-5">
                 <div class="py-2 mb-4 m-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
                     <div class="text-wrap m-1 mx-auto" style="width: 350px">
                         <h5 class="bg-info rounded text-center text-light">From: {{ review.name }} {{ review.surname }}</h5>
@@ -367,7 +367,7 @@ textarea {
     font-size: 16px;
 }
 #reviews_box{
-    height: 50rem;
+    height: 30rem;
     overflow-y: scroll;
 }
 </style>
