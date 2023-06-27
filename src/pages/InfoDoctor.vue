@@ -137,7 +137,7 @@ export default {
 
             <div class="m-4 cv d-flex justify-content-center">
                 <!-- <object :data="doctor.cv" type="application/pdf" width="100%" height="500px"></object> -->
-                <embed :src="doctor.cv" width="60%" height="800px" type="application/pdf">
+                <embed :src="doctor.cv" width="80%" height="500px" type="application/pdf">
             </div>
 
             <div class="d-flex flex-column border-top pt-5 mt-3">
@@ -249,12 +249,12 @@ export default {
                     <!-- /REVIEW -->
                 </div>
             </div>
-            <div class="m-2 py-1 mt-5 border-top">
+            <div class="m-2 py-1 mt-5 border-top" v-if="doctor.reviews.length">
                 <h2 class="my-4 text-light">Customer reviews</h2>
                 <div id="reviews_box" class="d-flex flex-column align-items-center pt-5">
-                <div class="py-2 mb-4 m-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
-                    <div class="text-wrap m-1 mx-auto" style="width: 350px">
-                        <h5 class="bg-info rounded text-center text-light">From: {{ review.name }} {{ review.surname }}</h5>
+                <div class="py-2 mb-4 mx-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
+                    <div class="m-1 mx-auto" style="max-width: 350px">
+                        <h5 class="bg-info rounded text-center text-light">{{ review.name }} {{ review.surname }}</h5>
                     </div>
                     <div class="py-2 m-1">
                         <h6>{{ review.text_review }}</h6>
@@ -367,7 +367,7 @@ textarea {
     font-size: 16px;
 }
 #reviews_box{
-    height: 30rem;
+    max-height: 30rem;
     overflow-y: scroll;
 }
 </style>
