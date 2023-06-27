@@ -70,8 +70,9 @@ export default {
             axios.post("http://127.0.0.1:8000/api/doctors/review", data).then((response) => {
                 this.isReview = true;
                 this.isError = false;
-                const star=document.getElementById('star'+this.dataReview.vote);
-                star.checked=false;
+                const star = document.getElementById('star' + this.dataReview.vote);
+                star.checked = false;
+                this.doctor.reviews.push(data);
                 this.dataReview = {
                     text_review: null,
                     name: null,
@@ -87,11 +88,11 @@ export default {
 
         }
     },
-    computed:{
-        getSpec(){
-            let tmp='';
+    computed: {
+        getSpec() {
+            let tmp = '';
             this.doctor.specializations.forEach(element => {
-                tmp+=element.name+', ';
+                tmp += element.name + ', ';
             });
             return tmp.slice(0, tmp.length - 2);
         }
@@ -115,21 +116,23 @@ export default {
                 <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
                     <div class="d-flex">
                         <h3 class="mb-2">Dr. {{ doctor.user.name }} {{ doctor.user.surname }} </h3>
-                        <span v-if="doctor.sponsorships.length" class="badge text-bg-warning ms-2 mt-2" style="height: 20px;">Sponsored</span>
+                        <span v-if="doctor.sponsorships.length" class="badge text-bg-warning ms-2 mt-2"
+                            style="height: 20px;">Sponsored</span>
                     </div>
-                    
+
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><font-awesome-icon icon="fa-solid fa-envelope" class="me-2"/> {{ doctor.user.email }}</li>
-                        <li><font-awesome-icon icon="fa-solid fa-location-dot" class="me-2"/> {{ doctor.user.address }} </li>
-                        <li><font-awesome-icon icon="fa-solid fa-phone-flip" class="me-2"/> {{ doctor.telephone }} </li>
+                        <li><font-awesome-icon icon="fa-solid fa-envelope" class="me-2" /> {{ doctor.user.email }}</li>
+                        <li><font-awesome-icon icon="fa-solid fa-location-dot" class="me-2" /> {{ doctor.user.address }}
+                        </li>
+                        <li><font-awesome-icon icon="fa-solid fa-phone-flip" class="me-2" /> {{ doctor.telephone }} </li>
                         <li>
-                            <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3"/> 
+                            <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3" />
                             <span>{{ getSpec }}</span>
                         </li>
                     </ul>
                 </div>
-                <div class="px-5 mx-5 pt-2 col-md box_description">
-                    <h4 class="text-center">About me</h4>
+                <div class="px-5 mx-5 pt-2 col-md box_description text-center">
+                    <h4>About me</h4>
                     <p>{{ doctor.description }}</p>
                 </div>
                 <!-- /INFO-DOCTOR -->
@@ -145,16 +148,21 @@ export default {
                     <h2 class="py-3 text-light">Contact Doctor</h2>
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item me-3" role="presentation">
-                            <button @click="selectedForm = 'message'" class="nav-link active text-white border" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Book your visit</button>
+                            <button @click="selectedForm = 'message'" class="nav-link active text-white border"
+                                id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
+                                role="tab" aria-controls="pills-home" aria-selected="true">Book your visit</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button @click="selectedForm = 'review'" class="nav-link text-white border" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Leave a review</button>
+                            <button @click="selectedForm = 'review'" class="nav-link text-white border"
+                                id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
+                                role="tab" aria-controls="pills-profile" aria-selected="false">Leave a review</button>
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="container tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="container tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab">
                         <!-- MESSAGE -->
                         <div class="py-2">
                             <!-- MESSAGE ERRORS -->
@@ -169,7 +177,7 @@ export default {
                             </div>
 
                             <form @submit.prevent="sendMessage" method="POST">
-                                
+
                                 <div class="py-1">
                                     <input class="row_size" type="text" v-model="dataMessage.name" name="nome"
                                         placeholder="Name" required>
@@ -189,11 +197,11 @@ export default {
                                 <div class="d-flex justify-content-center py-3 px-3">
                                     <input class="btn bg-success" type="submit" value="Send">
                                 </div>
-                                    
+
                             </form>
-                        <!-- /MESSAGE -->
+                            <!-- /MESSAGE -->
                         </div>
-                    </div>  
+                    </div>
                     <!-- REVIEW -->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="py-2">
@@ -209,8 +217,8 @@ export default {
                             </div>
                             <form @submit.prevent="sendReview" method="POST">
                                 <div class="py-1">
-                                    <input class="row_size" type="text" v-model="dataReview.name" name="nome" placeholder="Name"
-                                        required>
+                                    <input class="row_size" type="text" v-model="dataReview.name" name="nome"
+                                        placeholder="Name" required>
                                 </div>
                                 <div class="py-1">
                                     <input class="row_size" type="text" v-model="dataReview.surname" name="cognome"
@@ -227,15 +235,20 @@ export default {
                                 <div class="d-flex justify-content-center align-items-center py-2 px-3">
                                     <div class="py-3">
                                         <div class="rating">
-                                            <input type="radio" name="rating" id="star5" value="5" @click="dataReview.vote = 5">
+                                            <input type="radio" name="rating" id="star5" value="5"
+                                                @click="dataReview.vote = 5">
                                             <label for="star5"></label>
-                                            <input type="radio" name="rating" id="star4" value="4" @click="dataReview.vote = 4">
+                                            <input type="radio" name="rating" id="star4" value="4"
+                                                @click="dataReview.vote = 4">
                                             <label for="star4"></label>
-                                            <input type="radio" name="rating" id="star3" value="3" @click="dataReview.vote = 3">
+                                            <input type="radio" name="rating" id="star3" value="3"
+                                                @click="dataReview.vote = 3">
                                             <label for="star3"></label>
-                                            <input type="radio" name="rating" id="star2" value="2" @click="dataReview.vote = 2">
+                                            <input type="radio" name="rating" id="star2" value="2"
+                                                @click="dataReview.vote = 2">
                                             <label for="star2"></label>
-                                            <input type="radio" name="rating" id="star1" value="1" @click="dataReview.vote = 1">
+                                            <input type="radio" name="rating" id="star1" value="1"
+                                                @click="dataReview.vote = 1">
                                             <label for="star1"></label>
                                         </div>
                                         <div class="py-3">
@@ -251,26 +264,38 @@ export default {
             </div>
             <div class="m-2 py-1 mt-5 border-top" v-if="doctor.reviews.length">
                 <h2 class="my-4 text-light">Customer reviews</h2>
-                <div id="reviews_box" class="d-flex flex-column align-items-center pt-5">
-                <div class="py-2 mb-4 mx-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
-                    <div class="m-1 mx-auto" style="max-width: 350px">
-                        <h5 class="bg-info rounded text-center text-light">{{ review.name }} {{ review.surname }}</h5>
+                <!-- <div id="reviews_box" class="d-flex flex-column align-items-center">
+                    <div class="py-2 mb-4 mx-2 bg_color_light rounded p-2 bg-light text-center w-50" v-for="review in doctor.reviews">
+                        <div class="m-1 mx-auto" style="max-width: 350px">
+                            <h5 class="bg-info rounded text-center text-light">{{ review.name }} {{ review.surname }}</h5>
+                        </div>
+                        <div class="py-2 m-1">
+                            <h6>{{ review.text_review }}</h6>
+                        </div>
                     </div>
-                    <div class="py-2 m-1">
-                        <h6>{{ review.text_review }}</h6>
+                </div> -->
+                <div class="row gy-3" id="reviews_box">
+                    <div class="col-12 col-md-6 col-lg-4" v-for="review in doctor.reviews">
+                        <div class="bg-light p-4 rounded text-break h-100">
+                            <div class="m-1 mx-auto" style="max-width: 350px">
+                                <h5 class="bg-info rounded text-center text-light">{{ review.name }} {{ review.surname }}
+                                </h5>
+                            </div>
+                            <div class="py-2 m-1 text-center">
+                                <h6>{{ review.text_review }}</h6>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                
-                <li v-if="isReview" class="list-group-item">Nessuna recensione!</li>
-            </div>        
+            </div>
             <!-- LINKHOME -->
             <div class="text-center mt-5 fs-3 py-4 border-top">
                 <router-link class="text-primary" :to="{ name: 'home' }">Homepage</router-link>
             </div>
             <!-- /LINKHOME -->
-            </div>
-            
         </div>
+
     </div>
 </template>
 
@@ -294,6 +319,7 @@ export default {
     border-radius: 10px;
     height: 200px;
     width: 200px;
+    object-fit: contain;
 }
 
 .rating {
@@ -366,7 +392,8 @@ textarea {
     color: #333;
     font-size: 16px;
 }
-#reviews_box{
+
+#reviews_box {
     max-height: 30rem;
     overflow-y: scroll;
 }
