@@ -45,6 +45,7 @@ export default {
             else this.getDoctors();
         },
         setMediaVote() {
+            this.reviews_count=0;
             if (this.mediaVote == 0) this.getDoctors();
             else {
                 axios.get('http://127.0.0.1:8000/api/doctors/vote/' + this.mediaVote).then((response) => {
@@ -53,6 +54,7 @@ export default {
             }
         },
         setReviewCount(){
+            this.mediaVote=0;
             if (this.reviews_count == 0) this.getDoctors();
             else {
                 axios.get('http://127.0.0.1:8000/api/doctors/review/' + this.reviews_count).then((response) => {
