@@ -20,7 +20,7 @@ export default {
 <template>
     <!--  componente card per visualizzazione dati dottore    -->
     <div class="card background_color_img" style="height: 100%;">
-        <img :src="doc.image" class="card-img-top img_size px-1 py-1" :alt="doc.user.name">
+        <img :src="doc.image" class="card-img-top img_size px-1" :alt="doc.user.name">
         <div class="card-body text-white">
             <h6 class="card-title">Dr. {{ doc.user.name }} {{ doc.user.surname }}</h6>
             <span v-if="doc.sponsorships.length" class="badge text-bg-warning" style="height: 20px;">Sponsored</span>
