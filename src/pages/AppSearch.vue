@@ -27,6 +27,12 @@ export default {
         getDoctorBySpec(idSpec) {
             axios.get('http://127.0.0.1:8000/api/doctors/specialization/' + idSpec).then((response) => {
                 this.doctors = response.data.results;
+                const specBtn = document.getElementById(idSpec);
+                const specDeselect = document.querySelectorAll('.btn_spec');
+                specDeselect.forEach(element => {
+                    element.classList.remove('act');
+                });
+                specBtn.classList.add('act');
             })
         },
         //metodo per ricevere i dottori con API 
@@ -171,7 +177,7 @@ export default {
                     <div class="row ">
                         <div class="col text-center">
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
-                            <button class="act btn btn_color btn-primary m-1" v-for="spec in specs"
+                            <button  class="btn btn_spec btn_color btn-primary m-1" v-for="spec in specs" :id="spec.id"
                                 @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
                         </div>
                     </div>
@@ -196,7 +202,7 @@ export default {
     background: linear-gradient(0deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
 }
 
-.act:focus {
+.act {
     background-color: rgba(0, 0, 250, 0.5);
 }
 
