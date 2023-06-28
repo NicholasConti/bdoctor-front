@@ -13,7 +13,8 @@ export default {
             doctors: [],
             specs: [],
             search: '',
-            mediaVote: 0
+            mediaVote: 0,
+            reviews_count: 0
         }
     },
     methods: {
@@ -51,8 +52,14 @@ export default {
                 })
             }
         },
-
-
+        setReviewCount(){
+            if (this.reviews_count == 0) this.getDoctors();
+            else {
+                axios.get('http://127.0.0.1:8000/api/doctors/review/' + this.reviews_count).then((response) => {
+                    this.doctors = response.data.results;
+                })
+            }
+        },
         checkForNums(input) {
             let result = /^\d+$/.test(input);
             return result;
@@ -109,7 +116,7 @@ export default {
         <div class="container">
             <h1 class="py-4 text_color">Search Results</h1>
             <div class="row">
-                <div class="col-8">
+                <div class="col-6">
                     <h6 class="text_color">Search Name/Surname:</h6>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" aria-describedby="basic-addon1" v-model="search"
@@ -120,7 +127,7 @@ export default {
                 </div>
                 <!-- select per ricerca media voti -->
                 <div class="col-2">
-                    <h6 class="text_color">Search By:</h6>
+                    <h6 class="text_color">Search By Media Vote</h6>
                     <select class="form-select" aria-label="Default select example" v-model="mediaVote"
                         @change="setMediaVote">
                         <option selected value="0">---</option>
@@ -131,6 +138,19 @@ export default {
                         <option value="5">5 &#11088;</option>
                     </select>
                 </div>
+
+                <!-- select per ricerca recensioni -->
+                <div class="col-2">
+                    <h6 class="text_color">Search By Review</h6>
+                    <select class="form-select" aria-label="Default select example" v-model="reviews_count"
+                        @change="setReviewCount">
+                        <option selected value="0">---</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+                
                 <!-- select per filtro media voti e recensioni -->
                 <div class="col-2">
                     <h6 class="text_color">Filters:</h6>
