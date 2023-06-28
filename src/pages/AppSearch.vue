@@ -14,7 +14,8 @@ export default {
             specs: [],
             search: '',
             mediaVote: 0,
-            reviews_count: 0
+            reviews_count: 0,
+            activeBtn: null
         }
     },
     methods: {
@@ -27,12 +28,7 @@ export default {
         getDoctorBySpec(idSpec) {
             axios.get('http://127.0.0.1:8000/api/doctors/specialization/' + idSpec).then((response) => {
                 this.doctors = response.data.results;
-                const specBtn = document.getElementById(idSpec);
-                const specDeselect = document.querySelectorAll('.btn_spec');
-                specDeselect.forEach(element => {
-                    element.classList.remove('act');
-                });
-                specBtn.classList.add('act');
+                this.activeBtn = idSpec;
             })
         },
         //metodo per ricevere i dottori con API 
@@ -51,7 +47,7 @@ export default {
             else this.getDoctors();
         },
         setMediaVote() {
-            this.reviews_count=0;
+            this.reviews_count = 0;
             if (this.mediaVote == 0) this.getDoctors();
             else {
                 axios.get('http://127.0.0.1:8000/api/doctors/vote/' + this.mediaVote).then((response) => {
@@ -59,8 +55,8 @@ export default {
                 })
             }
         },
-        setReviewCount(){
-            this.mediaVote=0;
+        setReviewCount() {
+            this.mediaVote = 0;
             if (this.reviews_count == 0) this.getDoctors();
             else {
                 axios.get('http://127.0.0.1:8000/api/doctors/review/' + this.reviews_count).then((response) => {
@@ -158,7 +154,7 @@ export default {
                         <option value="15">15</option>
                     </select>
                 </div>
-                
+
                 <!-- select per filtro media voti e recensioni -->
                 <div class="col-2">
                     <h6 class="text_color">Filters:</h6>
@@ -177,8 +173,10 @@ export default {
                     <div class="row ">
                         <div class="col text-center">
                             <button class="btn btn-success m-1" @click="getDoctors">ALL</button>
-                            <button  class="btn btn_spec btn_color btn-primary m-1" v-for="spec in specs" :id="spec.id"
-                                @click="getDoctorBySpec(spec.id)">{{ spec.name }}</button>
+                            <button class="btn btn_spec btn_color btn-primary m-1" v-for="spec in specs"
+                                :class="activeBtn == spec.id ? 'act' : ''" :id="spec.id"
+                                @click="getDoctorBySpec(spec.id)">{{ spec.name
+                                }}</button>
                         </div>
                     </div>
                 </div>
