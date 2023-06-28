@@ -150,7 +150,7 @@ export default {
                         <li class="nav-item me-3" role="presentation">
                             <button @click="selectedForm = 'message'" class="nav-link active text-white border"
                                 id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
-                                role="tab" aria-controls="pills-home" aria-selected="true">Book your visit</button>
+                                role="tab" aria-controls="pills-home" aria-selected="true">Contact doctor</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button @click="selectedForm = 'review'" class="nav-link text-white border"
@@ -195,7 +195,7 @@ export default {
                                         cols="40" placeholder="Write something here" required></textarea>
                                 </div>
                                 <div class="d-flex justify-content-center py-3 px-3">
-                                    <input class="btn bg-success" type="submit" value="Send">
+                                    <input class="btn bg-success" type="submit" value="Send Message">
                                 </div>
 
                             </form>
