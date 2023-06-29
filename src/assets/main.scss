@@ -2,3 +2,25 @@
 @use "./_partial/variables" as *;
 
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #005a97 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 13px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #005a97;
+    border-radius: 6px;
+    border: 3px none #ffffff;
+  }
