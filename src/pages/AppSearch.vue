@@ -119,7 +119,7 @@ export default {
 
         <div class="container">
             <h1 class="py-4 text_color">Search Results</h1>
-            <div class="row">
+            <div class="row d-flex justify-content-center">
                 <div class="col-6">
                     <h6 class="text_color">Search Name/Surname:</h6>
                     <div class="input-group mb-3">
@@ -129,43 +129,76 @@ export default {
                             @click="searchByText()">Search</span>
                     </div>
                 </div>
-                <!-- select per ricerca media voti -->
-                <div class="col-2">
-                    <h6 class="text_color">Search By Media Vote</h6>
-                    <select class="form-select" aria-label="Default select example" v-model="mediaVote"
-                        @change="setMediaVote">
-                        <option selected value="0">---</option>
-                        <option value="1">1 &#11088;</option>
-                        <option value="2">2 &#11088;</option>
-                        <option value="3">3 &#11088;</option>
-                        <option value="4">4 &#11088;</option>
-                        <option value="5">5 &#11088;</option>
-                    </select>
-                </div>
 
-                <!-- select per ricerca recensioni -->
-                <div class="col-2">
-                    <h6 class="text_color">Search By Review</h6>
-                    <select class="form-select" aria-label="Default select example" v-model="reviews_count"
-                        @change="setReviewCount">
-                        <option selected value="0">---</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                    </select>
-                </div>
+            </div>
 
-                <!-- select per filtro media voti e recensioni -->
-                <div class="col-2">
-                    <h6 class="text_color">Filters:</h6>
-                    <select class="form-select" aria-label="Default select example" v-model="filter"
-                        @change="filterResults">
-                        <option selected value="0">---</option>
-                        <option value="1">Order by Vote</option>
-                        <option value="2">Order by Reviews</option>
-                    </select>
+            <div class=" p-2 gap-3 py-4">
+                <div class="container">
+                    <div class="row d-flex justify-content-center ">
+                        
+
+                            <!-- select per ricerca media voti -->
+                            <div class="col-4">
+                                <h6 class="text_color d-none d-lg-block  ">Search By Media Vote</h6>
+                                <h6 class="text_color d-sm-block d-lg-none">By Vote</h6>
+                                <select class="form-select" aria-label="Default select example" v-model="mediaVote"
+                                    @change="setMediaVote">
+                                    <option selected value="0">---</option>
+                                    <option value="1">1 &#11088;</option>
+                                    <option value="2">2 &#11088;</option>
+                                    <option value="3">3 &#11088;</option>
+                                    <option value="4">4 &#11088;</option>
+                                    <option value="5">5 &#11088;</option>
+                                </select>
+                            </div>
+
+                            <!-- select per ricerca recensioni -->
+                            <div class="col-4">
+                                <h6 class="text_color d-none d-lg-block  ">Search By Review</h6>
+                                <h6 class="text_color d-sm-block d-lg-none">By Review</h6>
+                                <select class="form-select" aria-label="Default select example" v-model="reviews_count"
+                                    @change="setReviewCount">
+                                    <option selected value="0">---</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                </select>
+                            </div>
+
+                            <!-- select per filtro media voti e recensioni -->
+                            <div class="col-4">
+                                <h6 class="text_color">Filters:</h6>
+                                <select class="form-select" aria-label="Default select example" v-model="filter"
+                                    @change="filterResults">
+                                    <option selected value="0">---</option>
+                                    <option value="1">Order by Vote</option>
+                                    <option value="2">Order by Reviews</option>
+                                </select>
+                            </div>
+
+
+
+
+
+
+
+
+                        
+                    </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
             <!-- sezione per filtrare i dottori per specializzazioni -->
             <div class="d-flex justify-content-center p-2 gap-3 py-4">

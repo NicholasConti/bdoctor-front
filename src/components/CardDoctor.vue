@@ -57,7 +57,6 @@ export default {
 .img_size {
     height: 15.625rem;
     border-radius: 10px;
-    object-fit: contain;
 }
 
 #hover-color:hover {
