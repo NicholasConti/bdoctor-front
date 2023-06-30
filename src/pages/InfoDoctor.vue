@@ -121,6 +121,11 @@ export default {
                     </div>
 
                     <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li>
+                            <font-awesome-icon icon="fa-solid fa-star" class="me-2"/>
+                            <font-awesome-icon icon="fa-solid fa-star" class="text-warning" v-for="n in Math.ceil(doctor.votes_avg_vote)"/>
+                            <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5 - Math.ceil(doctor.votes_avg_vote)"/>
+                        </li>
                         <li><font-awesome-icon icon="fa-solid fa-envelope" class="me-2" /> {{ doctor.user.email }}</li>
                         <li><font-awesome-icon icon="fa-solid fa-location-dot" class="me-2" /> {{ doctor.user.address }}
                         </li>
