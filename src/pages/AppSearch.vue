@@ -118,7 +118,7 @@ export default {
     <div class="background_color py-5">
 
         <div class="container">
-            <h1 class="py-4 text_color">Search Results</h1>
+            <h1 class="py-4 text_color text-center">Search Results</h1>
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
                     <h6 class="text_color">Search Name/Surname:</h6>

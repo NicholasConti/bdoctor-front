@@ -73,7 +73,7 @@ export default {
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a></div>
         </div>
         <!-- Icons -->
-        <h5 class="text-center py-3">www.bdoctors.it © 2023 - Prenota la tua visita online!</h5>
+        <h5 class="text-center py-3">www.bdoctors.it © 2023 - Book your online visit!</h5>
     </footer>
     <!-- Main Container -->
 </template>
