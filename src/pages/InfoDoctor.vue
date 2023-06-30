@@ -113,7 +113,7 @@ export default {
                     <img :src="doctor.image" class="card-img-top img_doctor" alt="doc_img">
                 </div>
                 <!-- INFO-DOCTOR -->
-                <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
+                <div class="pe-5 me-5 mt-3 pt-2 d-flex flex-column gap-1">
                     <div class="d-flex">
                         <h3 class="mb-2">Dr. {{ doctor.user.name }} {{ doctor.user.surname }} </h3>
                         <span v-if="doctor.sponsorships.length" class="badge text-bg-warning ms-2 mt-2"
@@ -127,8 +127,7 @@ export default {
                             <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5 - Math.ceil(doctor.votes_avg_vote)"/>
                         </li>
                         <li><font-awesome-icon icon="fa-solid fa-envelope" class="me-2" /> {{ doctor.user.email }}</li>
-                        <li><font-awesome-icon icon="fa-solid fa-location-dot" class="me-2" /> {{ doctor.user.address }}
-                        </li>
+                        <li><font-awesome-icon icon="fa-solid fa-location-dot" class="me-2" /> {{ doctor.user.address }}</li>
                         <li><font-awesome-icon icon="fa-solid fa-phone-flip" class="me-2" /> {{ doctor.telephone }} </li>
                         <li>
                             <font-awesome-icon icon="fa-solid fa-suitcase-medical" class="me-3" />
@@ -136,8 +135,8 @@ export default {
                         </li>
                     </ul>
                 </div>
-                <div class="px-5 mx-5 pt-2 col-md box_description text-center">
-                    <h4>About me</h4>
+                <div class="px-5 mx-5 pt-3 col-md box_description text-center">
+                    <h4 class="mb-3">About me</h4>
                     <p>{{ doctor.description }}</p>
                 </div>
                 <!-- /INFO-DOCTOR -->
@@ -314,7 +313,7 @@ export default {
     border-radius: 10px;
     height: 200px;
     width: 200px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .rating {
